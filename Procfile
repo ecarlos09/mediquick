@@ -1,1 +1,1 @@
-web: gunicorn mediquick.wsgi --log-file -
+web: gunicorn mediquick/mediquick.wsgi --log-file -
