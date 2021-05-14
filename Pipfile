@@ -8,6 +8,14 @@ django = "*"
 django-environ = "*"
 
 [dev-packages]
+coverage = "*"
 
 [requires]
 python_version = "3.9"
+
+[scripts]
+dev = "python ./mediquick/manage.py runserver"
+migrate = "python ./mediquick/manage.py migrate"
+test = "python ./mediquick/manage.py test mediquick"
+initcov = "coverage run --source='.' ./mediquick/manage.py test mediquick"
+viewcov = "coverage report"
