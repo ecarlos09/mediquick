@@ -1,0 +1,1 @@
+web: gunicorn mediquick.wsgi --log-file -
