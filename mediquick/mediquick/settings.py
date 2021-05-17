@@ -41,16 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'public',
-<<<<<<< HEAD
     'users',
     'formtools',
     'django_otp',
     'django_otp.plugins.otp_static',
     'django_otp.plugins.otp_totp',
     'twoFactor'
-=======
     'doctors',
->>>>>>> origin/doctors-elwin
+    'guardian',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +111,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', # this is default
+    'guardian.backends.ObjectPermissionBackend',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
