@@ -7,7 +7,7 @@ from django_cryptography.fields import encrypt
 class CustomUsers(models.Model):
     # user type
     user_type = models.CharField(User, on_delete=models.CASCADE)
-    username = models.OneToOneField(User, on_delete=models.CASCADE)
+    # username = models.OneToOneField(User, on_delete=models.CASCADE)
     password = encrypt(models.CharField(max_length=50))
     email = models.CharField(max_length=30, blank=True)
 
