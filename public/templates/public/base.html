@@ -1,12 +1,22 @@
+{% load static %}
+
 <!DOCTYPE html>
 <head>
   {% block head %}
   <title>MediQuick | {% block title %} {% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'public/css/home.css' %}">
+ 
   {% endblock %}
 </head>
 
 <body>
-  <nav>Navigation here</nav>
+  <nav>
+    <div class="nav">
+      <a href=""><p>Home</p></a>
+      <a href=""><p>Testimonials</p></a>
+    </div></nav>
+
+    <div id="menu"></div>
   {% block content %}
   {% endblock %}
    <footer>
@@ -14,4 +24,6 @@
       <a href=""><p>Policy</p></a>
       <a href=""><p>Support</p></a>
    </footer>
+   <script rel="stylesheet" href="{% static 'public/js/menu.min.js' %}"></script>
+   <script rel="stylesheet" href="{% static 'public/js/menu.js' %}"></script>
 </body>
