@@ -6,6 +6,5 @@ def index(request):
     return render(request, 'public/home.html')
 
     
-def login(request):
-    
-    return render(request, 'public/login.html', title="login")
+# def login(request):
+#     return render(request, 'public/login.html', title="login")

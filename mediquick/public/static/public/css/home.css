@@ -1,3 +1,11 @@
+/* mobile first */
+:root{
+  --blue: #2F80ED;
+}
+
+body{
+
+}
 
 .nav {
     display: flex;
@@ -5,4 +13,37 @@
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+    padding-left: 5px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .nav a{
+    color: black;
+    font-size: 3rem;
+    text-decoration: underline;
+
+    
+  }
+
+  .button{
+    font-size: 3rem;
+    margin: 15px 0;
+    padding: 5px;
+    background-color: var(--blue);
+    /* position: absolute; */
+    padding: 15px 0;
+    width: 40vw;
+    text-align: center;
+    
+    /* height: 40px; */
+    /* left: 82px; */
+    /* top: 423px; */
+    /* margin: 5px; */
+  }
+
+
+  a{
+    text-decoration: none;
+    color: white;
   }

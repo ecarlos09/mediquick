@@ -18,12 +18,13 @@
 
     <div id="menu"></div>
   {% block content %}
+
   {% endblock %}
    <footer>
       <a href=""><p>About</p></a>
       <a href=""><p>Policy</p></a>
       <a href=""><p>Support</p></a>
    </footer>
-   <script rel="stylesheet" href="{% static 'public/js/menu.min.js' %}"></script>
-   <script rel="stylesheet" href="{% static 'public/js/menu.js' %}"></script>
+   {% block script %}
+   {% endblock %}
 </body>
