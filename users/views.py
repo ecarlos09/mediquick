@@ -13,5 +13,5 @@ def register(req):
             return redirect('user-home') #change to the login page
     else:
         form = UserSignupForm()
-    data = { 'form': form }
-    return render(req, 'register.html', data)
+        data = { 'form': form }
+        return render(req, 'register.html', data)
