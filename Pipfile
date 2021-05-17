@@ -11,6 +11,7 @@ django-otp = "*"
 django-two-factor-auth = "*"
 django-formtools = "*"
 django-cryptography = "*"
+django-guardian = "*"
 
 [dev-packages]
 coverage = "*"
