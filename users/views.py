@@ -32,11 +32,7 @@ def register(req):
 # from the example main view
 #two factor auth
 
-@login_required
-def home_view(request):
-    return HttpRequest("hello")
-
-
+# login
 def auth_view(request):
     form = AuthenticationForm()
     if request.method == "POST":
@@ -46,7 +42,13 @@ def auth_view(request):
         if user is not None:
             request.session['pk'] =user.pk
             return redirect('verify-view')
-    return render(request, 'auth.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
+
+
+
+@login_required
+def home_view(request):
+    return HttpRequest("hello")
 
 #two factor end
 
