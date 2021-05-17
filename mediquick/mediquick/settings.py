@@ -41,12 +41,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'public',
+<<<<<<< HEAD
     'users',
     'formtools',
     'django_otp',
     'django_otp.plugins.otp_static',
     'django_otp.plugins.otp_totp',
     'twoFactor'
+=======
+    'doctors',
+>>>>>>> origin/doctors-elwin
 ]
 
 MIDDLEWARE = [
