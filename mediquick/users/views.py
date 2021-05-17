@@ -9,8 +9,8 @@ def register(req):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(req, f'Welcome {username}!') # change to the login page
-            return redirect('user-home') #change to the login page
+            messages.success(req, f'Welcome {username}!')
+            return redirect('user-otp')
     else:
         form = UserSignupForm()
     data = { 'form': form }

@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'public',
     'users',
+    'formtools',
+    'django_otp',
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'twoFactor'
 ]
 
 MIDDLEWARE = [
@@ -129,5 +134,5 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'user-home'
+LOGIN_REDIRECT_URL = 'otp'
 LOGIN_URL = 'login'
