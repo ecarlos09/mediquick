@@ -1,7 +1,7 @@
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
-from guardian.decorators import permission_required_or_403
+# from guardian.decorators import permission_required_or_403
 
 # Create your views here.
 
@@ -12,8 +12,8 @@ from guardian.decorators import permission_required_or_403
 # def server_error_500(request):
 #     return render(request, '500.html')
 
-@permission_required_or_403('auth.change_group',
-(Group, 'name', 'group_name'))
+# @permission_required_or_403('auth.change_group',
+# (Group, 'name', 'group_name'))
 def doctor_home(request):
     title = "Your Profile"
     name = "Strange"

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, User
 from django_cryptography.fields import encrypt
-from guardian.shortcuts import assign_perm
+# from guardian.shortcuts import assign_perm
 
 # Create your models here.
 class CustomUsers(models.Model):

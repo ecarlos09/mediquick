@@ -10,6 +10,7 @@ def register(req):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(req, f'Welcome {username}!')
+            print(req.user)
             return redirect('user-otp')
     else:
         form = UserSignupForm()
