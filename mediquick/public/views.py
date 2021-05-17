@@ -8,3 +8,7 @@ def index(request):
     
 # def login(request):
 #     return render(request, 'public/login.html', title="login")
+
+# render testimonials
+
+#render footer
