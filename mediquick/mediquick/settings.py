@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'public',
     'doctors',
     'users',
+    'codes',
 ]
 
 MIDDLEWARE = [
@@ -85,6 +86,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
@@ -135,5 +137,10 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'user-otp'
+LOGIN_REDIRECT_URL = 'user-home'
 LOGIN_URL = 'login'
+
+
+# two factor
+AUTH_USER_MODEL = 'users.CustomUser'
+# two factor end 
