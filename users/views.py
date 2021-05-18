@@ -154,7 +154,8 @@ def verify_view(request, user_id):
                 if str(code) == num:
                     code.save()
                     login(request, user)
-                    return authenticated(request)
+                    # user_name = user.first_name
+                    return redirect(f'/patients/home/{user_id}')
             else:
                 print("redirecting to login")
 
@@ -194,8 +195,8 @@ def verify_view(request, user_id):
 
 
 
-def authenticated(request):
-    return HttpResponse("hello")
+# def authenticated(user_name):
+#     return redirect(f'/patients/home/{user_name}')
 
 #two factor end
 

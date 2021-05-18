@@ -7,5 +7,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     # path('verify/', views.verify_view, name='two-factor-code'),
     path('verify/<user_id>', views.verify_view, name='two-factor-code'),
-    path('authed/', views.authenticated, name='authenticated')
+    # path('authed/', views.authenticated, name='authenticated')
 ]
