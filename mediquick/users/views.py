@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AnonymousUser
 from django.http.request import HttpRequest
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserSignupForm
@@ -16,9 +17,13 @@ from .models import CustomUser
 
 # Create your views here.
 def register(req):
+    form = UserSignupForm()
+    print(form)
+    print(req.method == 'POST')
     if req.method == 'POST':
-        # form = UserSignupForm(req.POST)
-        form = AuthenticationForm(data=req.POST)
+        form = UserSignupForm(req.POST)
+        # form = UserSignupForm(data=req.POST)
+        print(f'is form valid? {form.is_valid()}')
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -26,11 +31,13 @@ def register(req):
             # return redirect('user-home') #change to the login page
             # return render(req, 'registered')
             # request.session['pk'] =user.pk
-            return redirect('/verify')
+            return redirect('two-factor-code')
+        else: 
+            return render(req, 'register.html', {'form': form})
     else:
-        form = UserSignupForm()
-        data = { 'form': form }
-        return render(req, 'register.html', data)
+        # form = UserSignupForm()
+        # data = { 'form': form }
+        return render(req, 'register.html', {'form': form})
 
         # handle login 
 
@@ -40,14 +47,14 @@ def register(req):
 # login
 
 def auth_view(request):
-    form = AuthenticationForm(data=request.POST)
+    form = AuthenticationForm(request.POST)
     # if form.is_valid():
-    print(form.is_valid)
+    # print(form.is_valid)
     if request.method == "POST":
         print(request.POST)
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
+        username_input = request.POST.get('username')
+        password_input = request.POST.get('password')
+        user = authenticate(username=username_input, password=password_input)
         print(user)
         if user is not None:
             # request.session['pk']=user.pk
@@ -81,7 +88,7 @@ def verify_view(request):
             if str(code) == num:
                 code.save()
                 login(request, user)
-                return render(request, "user-home")
+                return authenticated(request)
             else:
                 print("redirecting to login")
                 return redirect('/login')
@@ -90,8 +97,8 @@ def verify_view(request):
 
 
 
-def home_view(request):
-    return HttpRequest("hello")
+def authenticated(request):
+    return HttpResponse("hello")
 
 #two factor end
 
