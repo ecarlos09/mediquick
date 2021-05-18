@@ -131,7 +131,8 @@ def verify_view(request, user_id):
             subject = 'OTP with MediQuick'
             code = user.code #54321 # change to generated code
             message = f'Here is your OTP: {code}.'
-            recipient = 'elwin.carlos09@gmail.com' # change to user
+            recipient = user.email #'elwin.carlos09@gmail.com' # change to user
+            print(f'EMAIL RECIPIENT: {recipient}')
 
             send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently = False)
             print('email sent')
