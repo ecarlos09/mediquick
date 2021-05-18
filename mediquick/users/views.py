@@ -26,7 +26,7 @@ def register(req):
             # return redirect('user-home') #change to the login page
             # return render(req, 'registered')
             # request.session['pk'] =user.pk
-            return redirect('verify-view')
+            return redirect('/verify')
     else:
         form = UserSignupForm()
         data = { 'form': form }
@@ -62,6 +62,7 @@ def verify_view(request):
     # print("user is")
     # print(request.user)
     # if request.user is not AnonymousUser:
+    # csrf = request['cs']
     form = CodeForm(request.POST or None)
     pk = request.session.get('pk')
 
