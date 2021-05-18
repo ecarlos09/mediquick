@@ -75,10 +75,11 @@ def verify_view(request):
     if pk:
         user = CustomUser.objects.get(pk=pk)
         code = user.code
-        code_user = f"{user.username}: {user.code}"
+        code_user = user.code
         if not request.POST:
+
             print(code_user)
-            # send email
+            # send email with var code_user
 
         print(f'is form valid? : {form.is_valid()}')
         #does form.valid does not work
