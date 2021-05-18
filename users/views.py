@@ -66,6 +66,7 @@ def auth_view(request):
     
 # @login_required
 def verify_view(request):
+    # print("user is")
     # print(request.user)
     # if request.user is not AnonymousUser:
     # csrf = request['cs']
