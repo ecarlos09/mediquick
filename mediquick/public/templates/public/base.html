@@ -5,7 +5,9 @@
   {% block head %}
   <title>MediQuick | {% block title %} {% endblock %}</title>
   <link rel="stylesheet" href="{% static 'public/css/base.css' %}">
- 
+  <link rel="shortcut icon" type="image/jpg" href="{% static 'public/images/crossign.png'%/}">
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">  
   {% endblock %}
 </head>
 
@@ -16,16 +18,25 @@
       <a href="testimonials"><p>Testimonials</p></a>
     </div>
   </nav>
+  <main>
+    {% block content %}
 
-    <div id="menu"></div>
-  {% block content %}
-
-  {% endblock %}
+    {% endblock %}
+  </main>
+ 
 
    <footer>
-      <a href="/about"><p>About</p></a>
-      <a href="/policy"><p>Policy</p></a>
-      <a href="/support"><p>Support</p></a>
+     <ul>
+      <a href="/policy"><li>
+       <p>Policy</p>
+      </li></a>
+      <a href="/about"><li>
+       <p>About</p>
+      </li></a>
+      <a href="/support"><li>
+       <p>Support</p>
+      </li></a>
+    </ul> 
    </footer>
    {% block script %}
    {% endblock %}
