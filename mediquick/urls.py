@@ -28,9 +28,12 @@ urlpatterns = [
     # path('register/', user_views.register, name='register'),
     # path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     # path('login/', auth_view, name='login-view'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     # path('verify/', users.verify_view, name='verify-view'),
     # two factor
   
 # two factor end 
+    path('doctors/', include('doctors.urls')),
+    path('register/', user_views.register, name='register'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout')
 ]
