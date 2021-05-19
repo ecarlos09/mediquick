@@ -1,6 +1,9 @@
+# from django.contrib.auth.models import CustomUser
 from users.models import CustomUser 
+
+# from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-from chat.models import MessageModel
+from .models import MessageModel
 from rest_framework.serializers import ModelSerializer, CharField
 
 
@@ -11,7 +14,7 @@ class MessageModelSerializer(ModelSerializer):
     def create(self, validated_data):
         user = self.context['request'].user
         recipient = get_object_or_404(
-            CustomUser, username=validated_data['recipient']['username'])
+            User, username=validated_data['recipient']['username'])
         msg = MessageModel(recipient=recipient,
                            body=validated_data['body'],
                            user=user)

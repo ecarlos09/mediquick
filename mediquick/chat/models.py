@@ -1,5 +1,8 @@
 from django.db import models
-from users.models import CustomUser as User
+
+# from django.contrib.auth.models import AbstractBaseUser
+
+from users.models import CustomUser
 from django.db.models import (Model, TextField, DateTimeField, ForeignKey, CASCADE)
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
@@ -7,9 +10,9 @@ from channels.layers import get_channel_layer
 
 class MessageModel(Model):
 
-    user = ForeignKey(User, on_delete=CASCADE, verbose_name='user',
+    user = ForeignKey(CustomUser, on_delete=CASCADE, verbose_name='user',
                       related_name='from_user', db_index=True)
-    recipient = ForeignKey(User, on_delete=CASCADE, verbose_name='recipient',
+    recipient = ForeignKey(CustomUser, on_delete=CASCADE, verbose_name='recipient',
                            related_name='to_user', db_index=True)
     timestamp = DateTimeField('timestamp', auto_now_add=True, editable=False,
                               db_index=True)
@@ -54,7 +57,7 @@ class MessageModel(Model):
 
     # Meta
     class Meta:
-        app_label = 'core'
+        app_label = 'chat'
         verbose_name = 'message'
         verbose_name_plural = 'messages'
         ordering = ('-timestamp',)
