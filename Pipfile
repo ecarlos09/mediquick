@@ -7,6 +7,10 @@ name = "pypi"
 django = "*"
 django-environ = "*"
 environ = "*"
+gunicorn = "*"
+dj-database-url = "*"
+whitenoise = "*"
+psycopg2 = "*"
 
 [dev-packages]
 coverage = "*"
