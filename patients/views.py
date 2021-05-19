@@ -28,7 +28,8 @@ def patient_home(request, user_id):
         }
         return render(request, 'patients/patient-home.html', data)
     else:
-        return redirect('/405-forbidden/')
+        return render(request, 'public/errors/405.html')
+        # return redirect('405')
 
 # def schedule_appointment(request):
 #     data = {
