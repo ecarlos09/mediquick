@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'public',
+    'doctors',
+    'patients',
     'users',
     'codes',
 ]
@@ -139,10 +141,10 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'user-home'
+LOGIN_REDIRECT_URL = 'doctor-home'
 LOGIN_URL = 'login'
 
 
 # two factor
 AUTH_USER_MODEL = 'users.CustomUser'
-# two factor end 
+# two factor end
