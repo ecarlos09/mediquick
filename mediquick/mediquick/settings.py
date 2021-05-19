@@ -46,8 +46,10 @@ INSTALLED_APPS = [
     'doctors',
     'users',
     'codes',
+    'chat',
     'public_chat',
     'channels',
+    'channels_redis'
 ]
 
 MIDDLEWARE = [
@@ -80,13 +82,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mediquick.wsgi.application'
 
-ASGI_APPLICATION = 'mediquick.routing.application'
+ASGI_APPLICATION = 'mediquick.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': ['127.0.0.1', '6379'],
+            "hosts": [('127.0.0.1', 6379)],
         },
     },
 }
@@ -165,4 +167,7 @@ LOGIN_URL = 'login'
 
 # two factor
 AUTH_USER_MODEL = 'users.CustomUser'
-# two factor end
+# two factor end 
+
+# CHAT FEATURE SETTINGS STARTS HERE
+ASGI_APPLICATION = 'mediquick.asgi.application'

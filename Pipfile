@@ -7,18 +7,14 @@ name = "pypi"
 django = "*"
 django-environ = "*"
 environ = "*"
-django-otp = "*"
-django-two-factor-auth = "*"
-django-formtools = "*"
-django-cryptography = "*"
-django-guardian = "*"
-channels = "*"
+django-channels = "*"
+channels-redis = "*"
 
 [dev-packages]
 coverage = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.8.8"
 
 [scripts]
 dev = "python ./mediquick/manage.py runserver"
