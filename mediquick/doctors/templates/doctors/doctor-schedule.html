@@ -1,0 +1,22 @@
+{% extends "public/base.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+
+{% block content %}
+    <h1>Here is your schedule for {{date}}</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Time</td>
+                <td>Patient</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>09:00</td>
+                <td>Patient 1</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
