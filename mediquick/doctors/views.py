@@ -18,8 +18,9 @@ from users.models import CustomUser
 
 @login_required
 def doctor_home(request, user_id):
+    user = CustomUser.objects.get(pk=user_id)
     pk = str(request.session.get('pk'))
-    if user_id == pk:
+    if user_id == pk and user.is_doctor:
         data = {
             'title': user_id,
             'user_number': user_id,
