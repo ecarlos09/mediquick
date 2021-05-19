@@ -12,6 +12,7 @@ django-two-factor-auth = "*"
 django-formtools = "*"
 django-cryptography = "*"
 django-guardian = "*"
+channels = "*"
 
 [dev-packages]
 coverage = "*"

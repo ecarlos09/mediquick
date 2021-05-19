@@ -31,6 +31,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     'doctors',
     'users',
     'codes',
+    'public_chat',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +80,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mediquick.wsgi.application'
 
+ASGI_APPLICATION = 'mediquick.routing.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': ['127.0.0.1', '6379'],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -127,6 +141,14 @@ USE_L10N = True
 USE_TZ = True
 
 
+'''Outlook settings'''
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp-mail.outlook.com'
+EMAIL_HOST_USER = 'mediquick.adm1n@outlook.com'
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 25
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -137,10 +159,10 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'user-home'
+LOGIN_REDIRECT_URL = 'doctor-home'
 LOGIN_URL = 'login'
 
 
 # two factor
 AUTH_USER_MODEL = 'users.CustomUser'
-# two factor end 
+# two factor end
