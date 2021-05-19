@@ -7,6 +7,7 @@ from users.models import CustomUser
 # Create your views here.
 
 '''Error handling views'''
+
 # def not_found_404(request, exception):
 #     data = { 'err': exception }
 #     return render(request, '404.html', data)
