@@ -2,8 +2,11 @@ from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 
+from users.models import CustomUser
+
 # Create your views here.
 
+'''Error handling views'''
 # def not_found_404(request, exception):
 #     data = { 'err': exception }
 #     return render(request, '404.html', data)
@@ -11,29 +14,40 @@ from django.contrib.auth.decorators import login_required
 # def server_error_500(request):
 #     return render(request, '500.html')
 
-def doctor_home(request):
-    title = "Your Profile"
-    name = "Strange"
-    data = {
-        "title": title,
-        "name": name
-    }
-    return render(request, 'doctor-home.html', data)
+'''End of error handling views'''
 
+@login_required
+def doctor_home(request, user_id):
+    pk = str(request.session.get('pk'))
+    if user_id == pk:
+        data = {
+            'title': user_id,
+            'user_number': user_id,
+            'name': "Strange"
+        }
+        return render(request, 'doctors/doctor-home.html', data)
+    else:
+        return redirect('login')
+
+''' Requires editing still '''
 def doctor_schedule(request):
     name = "Strange"
     data = {
         "title": f'{name}\'s Schedule',
         "date": "17/05/2021"
     }
-    return render(request, 'doctor-schedule.html', data)
+    return render(request, 'doctors/doctor-schedule.html', data)
 
 def doctor_room(request):
     name = "Strange"
     data = {
         "title": f'{name}\'s Room',
     }
-    return render(request, 'doctor-room.html', data)
+    return render(request, 'doctors/doctor-room.html', data)
+
+''' End of doctor views '''
+
+'''For reference'''
 
 # def about(request):
 #     return render(request, 'about.html')
