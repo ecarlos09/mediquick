@@ -42,7 +42,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'testapp',
+    'herokuapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
