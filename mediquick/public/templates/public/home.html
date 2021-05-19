@@ -1,0 +1,19 @@
+{% extends "public/base.html" %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'public/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>MedicQuick</h1>
+    <div class="button"><a href="login">Login</a></div>
+    <div class="button"><a href="register">Get  Started</a></div>
+{% endblock %}
+
+<!-- {% block script %}
+    <script src="{% static 'public/js/helpers.js' %}"></script>
+{% endblock %} -->
+
