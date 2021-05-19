@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'public',
+    'doctors',
+    'patients',
     'users',
     'codes',
     'channels',
@@ -142,7 +144,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'user-home'
+LOGIN_REDIRECT_URL = 'doctor-home'
 LOGIN_URL = 'login'
 
 
@@ -163,3 +165,4 @@ CHANNEL_LAYERS = {
 }
 
 MESSAGES_TO_LOAD = 30
+

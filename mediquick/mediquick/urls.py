@@ -33,4 +33,6 @@ urlpatterns = [
     # two factor
   
 # two factor end 
+    path('doctors/', include('doctors.urls')),
+    path('patients/', include('patients.urls')), 
 ]
