@@ -13,7 +13,7 @@ router.register(r'user', UserModelViewSet, basename='user-api')
 urlpatterns = [
     # path('', views.index, name='index'),
     # path('<str:room_name>/', views.room, name='room'),
-    path(r'api/v1/', include(router.urls)),
+    path(r'api', include(router.urls)),
 
     path('', login_required(
         TemplateView.as_view(template_name='chat/chat.html')), name='home'),
