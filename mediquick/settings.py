@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'public',
     'users',
     'codes',
+    'channels',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +148,6 @@ LOGIN_URL = 'login'
 # two factor
 AUTH_USER_MODEL = 'users.CustomUser'
 # two factor end 
+
+# CHAT FEATURE SETTINGS STARTS HERE
+ASGI_APPLICATION = 'mediquick.asgi.application'
