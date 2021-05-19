@@ -31,13 +31,16 @@ class MessagePagination(PageNumberPagination):
 
 
 class MessageModelViewSet(ModelViewSet):
+    print("message view")
     queryset = MessageModel.objects.all()
     serializer_class = MessageModelSerializer
     allowed_methods = ('GET', 'POST', 'HEAD', 'OPTIONS')
     authentication_classes = (CsrfExemptSessionAuthentication,)
     pagination_class = MessagePagination
 
+
     def list(self, request, *args, **kwargs):
+        print("MEssage LIST")
         print(request.user)
         self.queryset = self.queryset.filter(Q(recipient=request.user) |
                                              Q(user=request.user))
@@ -58,12 +61,15 @@ class MessageModelViewSet(ModelViewSet):
 
 
 class UserModelViewSet(ModelViewSet):
+ 
     queryset = CustomUser.objects.all()
+    print(queryset)
     serializer_class = UserModelSerializer
     allowed_methods = ('GET', 'HEAD', 'OPTIONS')
     pagination_class = None  # Get all user
 
     def list(self, request, *args, **kwargs):
         # Get all users except yourself
+        print("USER LIST")
         self.queryset = self.queryset.exclude(id=request.user.id)
         return super(UserModelViewSet, self).list(request, *args, **kwargs)
