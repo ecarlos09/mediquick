@@ -38,6 +38,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'chat',
+    'codes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,10 +51,8 @@ INSTALLED_APPS = [
     'doctors',
     'patients',
     'users',
-    'codes',
-    'channels',
-    'chat',
     'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
@@ -69,7 +70,7 @@ ROOT_URLCONF = 'mediquick.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +92,10 @@ WSGI_APPLICATION = 'mediquick.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'TEST': {
+            'NAME': os.path.join(BASE_DIR, 'db_test.sqlite3')
+        }
     }
 }
 
@@ -162,7 +166,8 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # two factor end 
 
 # CHAT FEATURE SETTINGS STARTS HERE
-ASGI_APPLICATION = 'mediquick.routing.application'
+# ASGI_APPLICATION = 'mediquick.routing.application'
+ASGI_APPLICATION = "mediquick.asgi.application"
 
 # CHANNEL_LAYERS = {
 #     'default': {
@@ -189,13 +194,21 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated'
     ],
-    'DEFAULT_PAGINATION_CLASS':
-        'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 100
+    # 'DEFAULT_PAGINATION_CLASS':
+    #     'rest_framework.pagination.LimitOffsetPagination',
+    # 'PAGE_SIZE': 100
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework.authentication.TokenAuthentication',
+    #     'rest_framework.authentication.SessionAuthentication',
+    #     'rest_framework.authentication.BasicAuthentication',
+    # ),
 }
+
+
 PROJECT_ROOT = BASE_DIR
+
 # Collect static files here
-STATIC_ROOT = join(PROJECT_ROOT, 'run', 'static_root')
-STATICFILES_DIRS = [
-    join(PROJECT_ROOT, 'static'),
-]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
