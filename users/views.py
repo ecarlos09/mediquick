@@ -155,7 +155,10 @@ def verify_view(request, user_id):
                     code.save()
                     login(request, user)
                     # user_name = user.first_name
-                    return redirect(f'/patients/home/{user_id}')
+                    if user.is_doctor:
+                        return redirect(f'/doctors/home/{user_id}')
+                    else:
+                        return redirect(f'/patients/home/{user_id}')
             else:
                 print("redirecting to login")
 
