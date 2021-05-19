@@ -1,7 +1,8 @@
-{% extends "public/base.html" %}
+{% extends "patients/base.html" %}
 
-{% block title %}{{title}}{% endblock %}
+{% block title %}{{name}}'s Dashboard{% endblock %}
 
+{% block name %}{{name}}{% endblock %}
 
 {% block content %}
     <h1>Welcome user number {{user_number}}!</h1>
