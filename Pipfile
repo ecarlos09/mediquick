@@ -9,6 +9,7 @@ django-environ = "*"
 environ = "*"
 django-channels = "*"
 djangorestframework = "*"
+channels-redis = "*"
 
 [dev-packages]
 coverage = "*"

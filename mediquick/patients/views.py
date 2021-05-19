@@ -22,8 +22,13 @@ def patient_home(request, user_id):
     # print(f'{pk==user_id}')
     # user_name = user.first_name
     if user_id == pk and not user.is_doctor:
+        if user.first_name == "": 
+            name = "Admin"
+        else: 
+            name = user.first_name
+
         data = {
-            'name': user.first_name,
+            'name': name,
             'user_number': user_id,
         }
         return render(request, 'patients/patient-home.html', data)

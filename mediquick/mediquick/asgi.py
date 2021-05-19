@@ -27,3 +27,15 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
 # })
 
 # # application = get_asgi_application()
+  
+from channels.auth import AuthMiddlewareStack
+from channels.routing import ProtocolTypeRouter, URLRouter
+import chat.routing
+
+application = ProtocolTypeRouter({
+    'websocket': AuthMiddlewareStack(
+        URLRouter(
+            chat.routing.websocket_urlpatterns
+        )
+    ),
+})
