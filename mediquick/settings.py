@@ -23,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# import environ
-# env = environ.Env()
-# environ.Env.read_env()
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
-# SECRET_KEY = env('SECRET_KEY') if env('SECRET_KEY')==None else os.environ['SECRET_KEY']
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = env('SECRET_KEY') if env('SECRET_KEY')==None else os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
 # with open('./.env') as f:
 #     SECRET_KEY = f.read().strip()
 
@@ -136,14 +136,9 @@ USE_TZ = True
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_HOST_USER = 'mediquick.adm1n@outlook.com'
-EMAIL_HOST_PASSWORD = os.environ('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 25
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -161,13 +156,27 @@ AUTH_USER_MODEL = 'users.CustomUser'
 ''' Deployment configuration '''
 
 django_heroku.settings(locals())
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
+STATICFILES_DIRS = [
+    "public/static",    
+]
+
+# STATICFILES_DIRS = [
+#     "/home/special.polls.com/polls/static",
+#     "/home/polls.com/polls/static",
+#     "/opt/webfiles/common",
+# ]
+
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 '''Database configuration'''
 import dj_database_url 
