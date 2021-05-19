@@ -8,12 +8,20 @@
 {% endblock %}
 
 {% block content %}
-    <h1>MedicQuick</h1>
-    <div class="button"><a href="login">Login</a></div>
-    <div class="button"><a href="register">Get  Started</a></div>
+<div id="upper" class="section-container">
+    <div id="cover"></div>
+    <h1>MediQuick</h1>
+</div>
+<div id="hero"></div>
+<div id="lower" class="section-container">
+    <a href="login"><div class="button">
+        <p>Login</p>
+    </div></a>
+    <a href="register">
+        <div class="button">
+            <p>Get  Started</p>
+        </div></a>
+</div>
+   
 {% endblock %}
-
-<!-- {% block script %}
-    <script src="{% static 'public/js/helpers.js' %}"></script>
-{% endblock %} -->
 
