@@ -18,7 +18,7 @@ import os
 from os.path import join
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+PROJECT_ROOT = BASE_DIR
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'codes',
     'channels',
     'chat',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -114,7 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -140,6 +140,12 @@ EMAIL_PORT = 25
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+STATIC_ROOT = join(PROJECT_ROOT, 'run', 'static_root')
+# look for static assets here
+STATICFILES_DIRS = [
+    join(PROJECT_ROOT, 'static'),
+]
 STATIC_URL = '/static/'
 
 # Default primary key field type
@@ -156,16 +162,24 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # two factor end 
 
 # CHAT FEATURE SETTINGS STARTS HERE
-ASGI_APPLICATION = 'mediquick.asgi.application'
+ASGI_APPLICATION = 'mediquick.routing.application'
 
+# CHANNEL_LAYERS = {
+#     'default': {
+#         # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         # 'CONFIG': {
+#         #     "hosts": [('127.0.0.1', 6379)],
+#         # },
+#         "BACKEND": "asgiref.inmemory.ChannelLayer",
+#         "ROUTING": "core.routing.channel_routing",
+#     },
+# }
 CHANNEL_LAYERS = {
     'default': {
-        # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        # 'CONFIG': {
-        #     "hosts": [('127.0.0.1', 6379)],
-        # },
-        "BACKEND": "asgiref.inmemory.ChannelLayer",
-        "ROUTING": "core.routing.channel_routing",
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
     },
 }
 
