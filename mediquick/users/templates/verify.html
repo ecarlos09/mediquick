@@ -1,14 +1,16 @@
 {% extends "public/base.html" %}
 
 {% block content %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <section id="alert">{{ message }}</section>
+        {% endfor %}
+    {% endif %}
+
     <form method="POST">
         {% csrf_token %}
         {{ form}}
-        <input type="submit" value="Register!">
+        <input type="submit" value="Submit Code!">
     </form>
-
-    <span>
-        Already have an account?
-        <a href="{% url 'login' %}">Login here</a>
-    </span>
 {% endblock content %}
