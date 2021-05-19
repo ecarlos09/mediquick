@@ -161,3 +161,5 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+MESSAGES_TO_LOAD = 30

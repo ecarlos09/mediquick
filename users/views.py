@@ -127,14 +127,14 @@ def verify_view(request, user_id):
             print(form)
             print(user)
             print('sending email')
-            EMAIL_HOST_USER = 'mediquick.adm1n@outlook.com'
-            subject = 'OTP with MediQuick'
-            code = user.code #54321 # change to generated code
-            message = f'Here is your OTP: {code}.'
-            recipient = user.email #'elwin.carlos09@gmail.com' # change to user
-            print(f'EMAIL RECIPIENT: {recipient}')
+            # EMAIL_HOST_USER = 'mediquick.adm1n@outlook.com'
+            # subject = 'OTP with MediQuick'
+            # code = user.code #54321 # change to generated code
+            # message = f'Here is your OTP: {code}.'
+            # recipient = user.email #'elwin.carlos09@gmail.com' # change to user
+            # print(f'EMAIL RECIPIENT: {recipient}')
 
-            send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently = False)
+            # send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently = False)
             print('email sent')
             print(f'is form valid? : {form.is_valid()}')
             #does form.valid does not work
