@@ -7,12 +7,13 @@ name = "pypi"
 django = "*"
 django-environ = "*"
 environ = "*"
+django-channels = "*"
 
 [dev-packages]
 coverage = "*"
 
 [requires]
-python_version = "3.10"
+python_version = "3.8.8"
 
 [scripts]
 dev = "python ./mediquick/manage.py runserver"
