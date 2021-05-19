@@ -1,4 +1,24 @@
-# from django.db import models
+
+from django.db import models
+
+#get stored user model
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
+class Message(models.Model):
+    author = models.ForeignKey(User, related_name='messages', on_delete=models.CASCADE)
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.author.username
+    
+    # define amount of messages to load 
+    #load most recent 30 messages
+    def last_10_messages(self):
+        return Message.objects.orger_by('-timestamp').all()[:10]
+
+
 
 # # # from django.contrib.auth.models import AbstractBaseUser
 
