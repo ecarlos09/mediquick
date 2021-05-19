@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import channels
+import os
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from os.path import join
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -157,12 +160,28 @@ ASGI_APPLICATION = 'mediquick.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
+        # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        # 'CONFIG': {
+        #     "hosts": [('127.0.0.1', 6379)],
+        # },
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "core.routing.channel_routing",
     },
 }
 
 MESSAGES_TO_LOAD = 30
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100
+}
+PROJECT_ROOT = BASE_DIR
+# Collect static files here
+STATIC_ROOT = join(PROJECT_ROOT, 'run', 'static_root')
+STATICFILES_DIRS = [
+    join(PROJECT_ROOT, 'static'),
+]
