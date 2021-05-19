@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+  {% block head %}
+  <title>MediQuick | {% block title %} {% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'public/css/base.css' %}">
+  <link rel="shortcut icon" type="image/jpg" href="{% static 'public/images/crossign.png'%/}">
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">  
+  {% endblock %}
+</head>
+
+<body>
+  <nav>
+    <div class="nav">
+    <h1>Howdy {% block name %} {% endblock %} !</h1>
+      <!-- <a href="/"><p>Home</p></a> -->
+      <a href="/patients/home/{{user_number}}"><p>Dashboard</p></a>
+      <a href="/patients/doctors"><p>About Doctors</p></a>
+      <p>Logout</p>
+    </div>
+  </nav>
+  <main>
+    {% block content %}
+
+    {% endblock %}
+  </main>
+ 
+
+   <footer>
+     <ul>
+      <a href="/policy"><li>
+       <p>Policy</p>
+      </li></a>
+      <a href="/about"><li>
+       <p>About</p>
+      </li></a>
+      <a href="/support"><li>
+       <p>Support</p>
+      </li></a>
+    </ul> 
+   </footer>
+   {% block script %}
+   {% endblock %}
+</body>

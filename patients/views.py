@@ -23,7 +23,7 @@ def patient_home(request, user_id):
     # user_name = user.first_name
     if user_id == pk and not user.is_doctor:
         data = {
-            'title': user_id,
+            'name': user.first_name,
             'user_number': user_id,
         }
         return render(request, 'patients/patient-home.html', data)
@@ -35,3 +35,5 @@ def patient_home(request, user_id):
 
 #     }
 #     return render(request, 'schedule-appointment.html', data)
+
+
