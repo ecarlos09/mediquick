@@ -37,7 +37,6 @@ def register(req):
             user = authenticate(username=username, password=password)
             user_id = req.session['pk']=user.pk
             messages.success(req, 'Nearly there!  Check your inbox and then enter your one time passcode.')
-            messages.success(req, 'N.B.  You will be asked to login again before using the app.')
             return redirect(f'/verify/{user_id}')
         else: 
             return render(req, 'register.html', {'form': form})
