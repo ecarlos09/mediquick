@@ -93,10 +93,17 @@ WSGI_APPLICATION = 'mediquick.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE" : "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "sqlite3")
+        "NAME": os.path.join(BASE_DIR, "sqlite3"),
+        # "DATABASE_URL": os.environ['DATABASE_URL']
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -137,6 +144,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_HOST_USER = 'mediquick.adm1n@outlook.com'
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 25
 
 
@@ -181,8 +189,16 @@ STATICFILES_FINDERS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 '''Database configuration'''
-import dj_database_url 
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
+# prod_db  =  dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(prod_db)
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+# import psycopg2
+# conn = psycopg2.connect(DATABASES['default']['DATABASE_URL'], sslmode='require')
 
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
