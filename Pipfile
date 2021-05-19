@@ -8,6 +8,7 @@ django = "==3.1"
 django-environ = "*"
 environ = "*"
 django-channels = "*"
+djangorestframework = "*"
 
 [dev-packages]
 coverage = "*"
