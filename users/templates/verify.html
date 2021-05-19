@@ -1,6 +1,13 @@
 {% extends "public/base.html" %}
 
 {% block content %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <section id="alert">{{ message }}</section>
+        {% endfor %}
+    {% endif %}
+
     <form method="POST">
         {% csrf_token %}
         {{ form}}
