@@ -60,3 +60,9 @@ ul
   list-style:none;
   justify-content: space-evenly;
 }
+/* 
+@media screen and (min-width:1318px) {
+    body{
+      color: red;
+    }
+} */
