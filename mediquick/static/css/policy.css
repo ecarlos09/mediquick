@@ -1,0 +1,32 @@
+@import url('./base.css');
+
+body{
+    font: var(--content-fonts);
+}
+
+.container-policy {
+    padding-left: 170px;
+    width: 75%;
+}
+
+p{
+    font-size: 18px;
+}
+
+li{
+    font-size: 18px;
+}
+
+h1{
+    font-size: 35px;
+}
+
+h2{
+    font-size: 25px;
+}
+
+main{
+    padding-bottom: 50px;
+    height: 100%;
+}
+
