@@ -4,5 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('forbidden/', views.forbidden_405, name='405')
+    path('forbidden/', views.forbidden_405, name='405'),
+    path('not-found/', views.not_found_404, name='404'),
+    path('server-error/', views.server_error_500, name='500'),
 ]
