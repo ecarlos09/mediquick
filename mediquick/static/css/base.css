@@ -1,6 +1,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Playfair+D'); */
 :root{
   --blue: #2F80ED;
+  --green:#44BFA1;
   --head-fonts: 5rem 'Playfair Display', serif;
   --content-fonts: 'Oxygen', sans-serif;
   --content-fonts: 2rem 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -19,6 +20,8 @@ body{
 }
 
 .nav {
+    padding-top: 10px;
+    padding-bottom: -2px;
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
@@ -39,6 +42,10 @@ body{
   padding: 5px 20px;
 }
 
+nav a:hover{
+  color: #44BFA1;
+}
+
 
 a{
   text-decoration: none;
@@ -56,10 +63,18 @@ footer{
   font:var(--content-fonts);
 }
 
+footer {
+  background-color: var(--blue);
+}
+
 footer a{
-  color: grey;
+  color: white;
   font-size: var(--hnf-size);
   margin: 0 10px;
+}
+
+footer a:hover{
+  color: #44BFA1;
 }
 
 ul

@@ -1,6 +1,7 @@
 @import url('./base.css');
 
 .container-policy {
-    padding-left: 170px;
-    width: 75%;
+    padding-left: 100px;
+    padding-right: 100px;
+    /* width: %; */
 }

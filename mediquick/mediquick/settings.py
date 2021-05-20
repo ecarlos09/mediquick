@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import channels
+# import channels
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -38,12 +38,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
-    # 'channels',
-=======
     'bootstrap4',
-    'channels',
->>>>>>> origin/greta-patient-dashboard
+    # 'channels',
     'chat',
     'codes',
     'django.contrib.admin',
