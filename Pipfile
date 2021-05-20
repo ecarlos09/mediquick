@@ -7,9 +7,9 @@ name = "pypi"
 django = "==3.1"
 django-environ = "*"
 environ = "*"
-django-channels = "*"
 djangorestframework = "*"
 channels-redis = "*"
+channels = "*"
 
 [dev-packages]
 coverage = "*"
