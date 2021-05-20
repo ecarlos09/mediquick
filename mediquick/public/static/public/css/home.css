@@ -69,6 +69,11 @@
     font-family: 'Playfair Display', serif;
 }
 
+
+.overlay h1{
+    font-weight: 600;
+}
+
 .overlay h3{
     font-size: var(--hnf-size);
 }
