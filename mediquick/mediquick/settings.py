@@ -26,9 +26,9 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY') 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 
@@ -44,12 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'public',
     'doctors',
+    'patients',
     'users',
     'codes',
     'chat',
     'public_chat',
-    'channels',
-    'channels_redis'
 ]
 
 MIDDLEWARE = [
@@ -167,7 +166,4 @@ LOGIN_URL = 'login'
 
 # two factor
 AUTH_USER_MODEL = 'users.CustomUser'
-# two factor end 
-
-# CHAT FEATURE SETTINGS STARTS HERE
-ASGI_APPLICATION = 'mediquick.asgi.application'
+# two factor end
