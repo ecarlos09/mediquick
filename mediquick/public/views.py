@@ -18,5 +18,13 @@ def server_error_500(request):
 #     return render(request, 'public/login.html', title="login")
 
 # render testimonials
+def policy(request):
+    return render(request, 'public/policy.html')
+
+def support(request):
+    return render(request, 'public/support.html')
+
+def testimonials(request):
+    return render(request, 'public/testimonials.html')
 
 #render footer
