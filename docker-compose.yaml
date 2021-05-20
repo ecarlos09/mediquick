@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+    web:
+        image: python:3.8.8
+        build: .
+        volumes:
+          - '.:/base_directory'
+        ports:
+          - "8000:8000"
+        volumes:
+            - type: bind
+              source: ./
+              target: /code
+        working_dir: /code
+        command: bash -c "ls && pipenv install -r requirements.txt && pipenv run dev"
+        # depends_on:
+        #   - redis
+#     redis:
+#         image: "redis:5"
+#         command: bash -c 
+    
+ 
+ 
+#  docker run -p 6379:6379 -d redis:5

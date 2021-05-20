@@ -13,11 +13,15 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import channels
+import os
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from os.path import join
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PROJECT_ROOT = BASE_DIR
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -42,6 +46,10 @@ ALLOWED_HOSTS = ['https://medi-quick.herokuapp.com/']
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap4',
+    'channels',
+    'chat',
+    'codes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,7 +60,8 @@ INSTALLED_APPS = [
     'doctors',
     'patients',
     'users',
-    'codes',
+    'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
@@ -71,7 +80,7 @@ ROOT_URLCONF = 'mediquick.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,10 +100,16 @@ WSGI_APPLICATION = 'mediquick.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE" : "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "sqlite3"),
-        # "DATABASE_URL": os.environ['DATABASE_URL']
+    # "default": {
+    #     "ENGINE" : "django.db.backends.sqlite3",
+    #     "NAME": os.path.join(BASE_DIR, "sqlite3"),
+    #     # "DATABASE_URL": os.environ['DATABASE_URL']
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'TEST': {
+            'NAME': os.path.join(BASE_DIR, 'db_test.sqlite3')
+        }
     }
 }
 
@@ -124,7 +139,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -147,6 +161,17 @@ EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 # EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 25
 
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+
+STATIC_ROOT = join(PROJECT_ROOT, 'run', 'static_root')
+# look for static assets here
+STATICFILES_DIRS = [
+    join(PROJECT_ROOT, 'static'),
+]
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -202,3 +227,52 @@ DATABASES['default'].update(db_from_env)
 # conn = psycopg2.connect(DATABASES['default']['DATABASE_URL'], sslmode='require')
 
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# two factor end 
+
+# CHAT FEATURE SETTINGS STARTS HERE
+# ASGI_APPLICATION = 'mediquick.routing.application'
+ASGI_APPLICATION = "mediquick.asgi.application"
+
+# CHANNEL_LAYERS = {
+#     'default': {
+#         # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         # 'CONFIG': {
+#         #     "hosts": [('127.0.0.1', 6379)],
+#         # },
+#         "BACKEND": "asgiref.inmemory.ChannelLayer",
+#         "ROUTING": "core.routing.channel_routing",
+#     },
+# }
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
+MESSAGES_TO_LOAD = 30
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
+    # 'DEFAULT_PAGINATION_CLASS':
+    #     'rest_framework.pagination.LimitOffsetPagination',
+    # 'PAGE_SIZE': 100
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework.authentication.TokenAuthentication',
+    #     'rest_framework.authentication.SessionAuthentication',
+    #     'rest_framework.authentication.BasicAuthentication',
+    # ),
+}
+
+
+PROJECT_ROOT = BASE_DIR
+
+# Collect static files here
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
