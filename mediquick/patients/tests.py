@@ -10,9 +10,8 @@ from users.models import CustomUser
 # class BaseTestCase(TestCase):
     
 #     @classmethod
-#     def setUpTestData(cls):
-#         cls.poodle_breed = Breed.objects.create(name='Poodle')
-#         cls.dog = Dog.objects.create(name='Fido', breed=cls.poodle_breed)
+#     def setUpTestUser(cls):
+#         cls.test_user = CustomUser.objects.create(first_name='Test')
 #         cls.user = User.objects.create_user('myusername', 'myemail@crazymail.com', 'mypassword')
 
 
@@ -44,15 +43,15 @@ from users.models import CustomUser
 #         assert "adoption/404.html" in [t.name for t in response.templates]
 
 
-# class TestLoggedInViews(BaseTestCase):
+# class TestLoggedInPatientViews(BaseTestCase):
 
 #     def setUp(self):
 #         self.c = Client()
 #         self.c.login(username="myusername", password="mypassword")
 
-#     def test_create_page_load(self):
-#         response = self.c.get(reverse('dog-create'))
-#         assert "dogs/new.html" in [t.name for t in response.templates]
+    # def test_load_patient_home(self):
+    #     response = self.c.get(reverse('patient-home', kwargs={'user_id': }))
+    #     assert "patients/patient-home.html" in [t.name for t in response.templates]
 
 #     def test_create_new_dog(self):
 #         response = self.c.post(reverse('dog-create'), {
