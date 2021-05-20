@@ -88,3 +88,11 @@ div.button{
     height: 50px;
 }
 
+.contact-info {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form {
+    margin-left: 2rem;
+}
