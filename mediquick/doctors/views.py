@@ -25,19 +25,12 @@ def doctor_home(request, user_id):
             'title': user_id,
             'user_number': user_id,
             'name': "Strange"
-<<<<<<< HEAD
-        }
-        return render(request, 'doctors/doctor-home.html', data)
-    else:
-        return redirect('login')
-=======
             # 'user_home': 'doctor-home'
         }
         return render(request, 'doctors/doctor-home.html', data)
     else:
         return render(request, 'public/errors/405.html')
         # return redirect('405')
->>>>>>> origin/staging
 
 ''' Requires editing still '''
 def doctor_schedule(request):
