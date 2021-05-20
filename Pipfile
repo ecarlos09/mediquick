@@ -15,6 +15,7 @@ django-heroku = "*"
 djangorestframework = "*"
 channels-redis = "*"
 django-bootstrap4 = "*"
+daphne = "*"
 
 [dev-packages]
 coverage = "*"
