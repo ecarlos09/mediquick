@@ -11,6 +11,7 @@ djangorestframework = "*"
 channels-redis = "*"
 channels = "*"
 django-cryptography = "*"
+django-bootstrap = "*"
 
 [dev-packages]
 coverage = "*"
