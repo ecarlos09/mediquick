@@ -1,49 +1,85 @@
+/* body{
+    background-image: url('../images/mobile-background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+} */
 /* mobile first */
-:root{
-  --blue: #2F80ED;
+@import url('./base.css');  
+@import url('https://fonts.googleapis.com/css2?family=Playfair+D');
+
+.section-container{
+    display: absolute;
+    height: 30vh;
 }
 
-body{
-
+#cover{
+    background-color: var(--blue);
+    position: fixed;
+    top: 0;
+    justify-content: center;
+    width: 130vw;
+    height: 60%;
+    left: -15%;
+    border-bottom: 1px solid var(--blue);
+    border-bottom-left-radius: 60%;
+    border-bottom-right-radius: 60%;
+    z-index: -1;
 }
 
-.nav {
+h1{
+    /* font-family: var(--head-fonts);
+    font-size: 3rem; */
+    font: var(--head-fonts);
+    color: white;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+#lower{
+    margin: 40% 0 0; 
     display: flex;
     flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-    padding-left: 5px;
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  .nav a{
-    color: black;
-    font-size: 3rem;
-    text-decoration: underline;
-
+    flex-direction: column;
+    height: 20vh;
+    align-items: center;
     
-  }
+}
 
-  .button{
+div.button{
     font-size: 3rem;
-    margin: 15px 0;
-    padding: 5px;
-    background-color: var(--blue);
-    /* position: absolute; */
-    padding: 15px 0;
-    width: 40vw;
+    margin: 10px 0 10px;
+    background-color: var(--blue);   
+    width: 45vw;
     text-align: center;
-    
-    /* height: 40px; */
+    height: 80px;
+    /* margin: 10px 20%; */
+    border-radius: 20px;
+    height: 100px;
+  
     /* left: 82px; */
     /* top: 423px; */
     /* margin: 5px; */
   }
-
-
-  a{
-    text-decoration: none;
+ 
+.section-container > a{
     color: white;
-  }
+    font: var(--content-fonts);
+
+}
+
+.button p{
+    margin: 0;
+    padding: 20px 0;
+    /* text-transform: uppercase; */
+}
+
+.section-container > a:hover{
+    color:red;
+}
+/* 
+.button a{
+    color: white;
+    line-height: 5px;
+} */
