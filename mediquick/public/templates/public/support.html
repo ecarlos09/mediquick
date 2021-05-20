@@ -1,9 +1,15 @@
 {% extends 'public/base.html' %}
+{% load static %}
 
-{% block title %}About{% endblock %}
+{% block title %}Support{% endblock %}
+
+{% block head %}<link rel="stylesheet" href="{%  static  'public/css/support.css'  %}">{% endblock %}
 
 {% block content %}
-    <h1>Feel free to contact us using email below</h1>
-    <h3>mediquick.adm1n@outlook.com</h3>
-    <p>Let's go <a href="{ url 'patient-home'}">Home</a></p>
+    <div class="support-container">
+        <br>
+        <br>
+        <h1>Feel free to contact us using email below</h1>
+        <h3>mediquick.adm1n@outlook.com</h3>
+    </div>
 {% endblock %}
