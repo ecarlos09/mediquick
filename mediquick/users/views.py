@@ -108,6 +108,8 @@ def verify_view(request, user_id):
             # if request.user is not AnonymousUser:
         # csrf = request['cs']
         user = get_object_or_404(CustomUser, pk=user_id)
+        username = user.username
+        email = user.email
         form = CodeForm(request.POST or None)
         # pk = request.session.get('pk')
         
@@ -163,6 +165,6 @@ def verify_view(request, user_id):
             else:
                 print("redirecting to login")
 
-        return render(request, 'verify.html', {'form': form})
+        return render(request, 'verify.html', {'form': form, 'username': username, 'email':email})
 
 #two factor end       
