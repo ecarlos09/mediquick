@@ -30,9 +30,11 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY') 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+
 
 
 # Application definition
@@ -85,6 +87,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mediquick.wsgi.application'
 
+ASGI_APPLICATION = 'mediquick.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -118,6 +130,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend', # this is default
+#     'guardian.backends.ObjectPermissionBackend',
+# )
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

@@ -1,3 +1,4 @@
+# chat/consumers.py
 import json
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
@@ -37,6 +38,7 @@ class ChatConsumer(WebsocketConsumer):
         )
 
     # handle the message
+    # Receive message from room group
     def chat_message(self, event):
         message = event['message']
 

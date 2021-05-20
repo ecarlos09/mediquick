@@ -6,13 +6,6 @@ from users.models import CustomUser
 
 # Create your views here.
 
-# def not_found_404(request, exception):
-#     data = { 'err': exception }
-#     return render(request, '404.html', data)
-
-# def server_error_500(request):
-#     return render(request, '500.html')
-
 @login_required
 def patient_home(request, user_id):
     user = CustomUser.objects.get(pk=user_id)

@@ -31,7 +31,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     # path('verify/', users.verify_view, name='verify-view'),
     # two factor
-  
 # two factor end 
     path('doctors/', include('doctors.urls')),
     path('patients/', include('patients.urls')), 

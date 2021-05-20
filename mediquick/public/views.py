@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -20,3 +21,12 @@ def server_error_500(request):
 # render testimonials
 
 #render footer
+
+def policy(request):
+    return render(request, 'public/policy.html')
+
+def about(request):
+    return render(request, 'public/about.html')
+
+def support(request):
+    return render(request, 'public/support.html')

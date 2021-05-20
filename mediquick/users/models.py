@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django_cryptography.fields import encrypt
 
 class CustomUser(AbstractUser):
-    email = models.CharField(max_length=30)
-    is_doctor = models.BooleanField(default=False)
+    name = encrypt(models.CharField(max_length=20))
+    email = encrypt(models.CharField(max_length=30))
+    is_doctor = encrypt(models.BooleanField(default=False))
+
+    def __str__(self): 
+        return str (self.name)
