@@ -19,7 +19,7 @@
             <section id="alert">{{ message }}</section>
         {% endfor %}
     {% endif %}
-
+    
     <form method="POST">
         {% csrf_token %}
         {% bootstrap_form form %}
