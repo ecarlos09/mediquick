@@ -1,14 +1,45 @@
 {% extends "public/base.html" %}
+{% load static %}
+
+{% block title %} Login {% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'public/css/base.css' %}">
+{% endblock %}
+    
+
+
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+
+
+
 
 {% block content %}
+<div class="container p-5">
+
+    <h1>Sign in to MediQuick</h1>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
+        {% bootstrap_form form %}
+   
+        <!-- {{ form.as_p }} -->
+        {% bootstrap_button "Submit" button_type="submit" value="Login" button_class="btn-primary" %}
+        <!-- <input type="submit" value="Login"> -->
     </form>
 
     <span class="helptext">
         No account yet?
         <a href="{% url 'register' %}">Register here</a>
     </span>
+
+</div>
+  
 {% endblock content %}
