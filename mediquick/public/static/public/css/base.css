@@ -3,12 +3,18 @@
 :root{
   --blue: #2F80ED;
   --head-fonts: 5rem 'Playfair Display', serif;
-  --content-fonts: 2rem 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+  --content-fonts: 2rem 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  --hnf-size: 2.5rem;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body{
-  box-sizing: border-box;
-  margin: 0;
+  height: 100vh;
 }
 
 .nav {
@@ -19,21 +25,22 @@ body{
     list-style: none;
     padding-left: 5px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    border-bottom: royalblue 1px solid;
   }
 
-  .nav a{
-    color: black;
-    font-size: 3rem;
-    text-decoration: underline;
+.nav a{
+  color: white;
+  font-size: 3rem;
+  text-decoration: none;
+  font-size: var(--hnf-size);
+  padding: 5px 20px;
+}
 
-    
-  }
 
-
-  a{
-    text-decoration: none;
-  }
+a{
+  text-decoration: none;
+}
 
 footer{
   /* display: fixed;
@@ -49,8 +56,8 @@ footer{
 
 footer a{
   color: grey;
-  font-size: 2.3rem;
-  margin: 0 30px;
+  font-size: var(--hnf-size);
+  margin: 0 10px;
 }
 
 ul
@@ -60,9 +67,9 @@ ul
   list-style:none;
   justify-content: space-evenly;
 }
-/* 
+
 @media screen and (min-width:1318px) {
-    body{
-      color: red;
-    }
-} */
+  :root{
+    --hnf-size: 1.5rem;
+  }
+}
