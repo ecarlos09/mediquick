@@ -1,11 +1,24 @@
   
 {% extends "public/base.html" %}
 
+{% load static %}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
 {% block content %}
+
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
+        {% bootstrap_form form %}
+   
+        <!-- {{ form.as_p }} -->
+        {% bootstrap_button "Submit" button_type="submit" value="Login" button_class="btn-primary" %}
+        <!-- <input type="submit" value="Login"> -->
     </form>
 
     <span class="helptext">

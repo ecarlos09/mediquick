@@ -4,4 +4,3 @@ __pycache__
 .env
 .vscode
 mediquick/react
-mediquick/chat/api
