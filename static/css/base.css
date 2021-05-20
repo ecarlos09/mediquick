@@ -39,6 +39,8 @@ html, body{
   color: white;
   text-align: left;
   width: 80%;
+  font: var(--head-fonts);
+  font-size: 1.5rem;
 }
 
 .nav a{
