@@ -1,6 +1,15 @@
-{% extends "public/base.html" %}
+{% extends "./base.html" %}
 {% load static %}
 {% load bootstrap4 %}
+
+{% block title %} Verify {% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/verify.css' %}">
+{% endblock %}
+
+
 
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
@@ -8,25 +17,39 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
-{% block head %}
-{% block title %} Verify {% endblock %}
-{% endblock %}
 
 {% block content %}
 
-    {% if messages %}
-        {% for message in messages %}
-            <section id="alert">{{ message }}</section>
-        {% endfor %}
-    {% endif %}
+
+{% if messages %}
+{% for message in messages %}
+    <section id="alert">{{ message }}</section>
+{% endfor %}
+{% endif %}
+    
+
+<div class="container">
+    <h1>
+        Verify it is you {{username}}
+    </h1>
+    <p>
+        As an extra security layer we are using two-factor authentication. Enter the verification code we sent to {{email}}
 
     <form method="POST">
         {% csrf_token %}
         {% bootstrap_form form %}
-   
+
         <!-- {{ form.as_p }} -->
         {% bootstrap_button "Verify" button_type="submit" value="Verify" button_class="btn-primary" %}
         <!-- {{ form}} -->
         <!-- <input type="submit" value="Register!"> -->
-    </form>
+    </form>    
+    </div>        
+</div>
+  
 {% endblock content %}
+
+
+
+
+    

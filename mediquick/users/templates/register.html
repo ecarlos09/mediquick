@@ -1,15 +1,40 @@
-  
-{% extends "public/base.html" %}
+{% extends "./base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %} Login {% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
 
 {% block content %}
+<div class="container">
+    <h1>
+        Create Account
+    </h1>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Register!">
+        <!-- {{ form.as_p }} -->
+        {% bootstrap_form form %}
+        {% bootstrap_button "Register" button_type="submit" value="Register" button_class="btn-primary" %}
+        <span>
+            Already have an account?
+            <a href="{% url 'login' %}">Login here</a>
+        </span>
     </form>
 
-    <span>
-        Already have an account?
-        <a href="{% url 'login' %}">Login here</a>
-    </span>
+    
+    </div>        
+</div>
+  
 {% endblock content %}
