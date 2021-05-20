@@ -8,6 +8,10 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
+{% block head %}
+{% block title %} Verify {% endblock %}
+{% endblock %}
+
 {% block content %}
 
     {% if messages %}
