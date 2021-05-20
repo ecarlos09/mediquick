@@ -40,8 +40,8 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
-    'chat',
+    # 'channels',
+    # 'chat',
     'codes',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -87,16 +87,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mediquick.wsgi.application'
 
-ASGI_APPLICATION = 'mediquick.asgi.application'
+# ASGI_APPLICATION = 'mediquick.asgi.application'
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-    },
-}
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#     },
+# }
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
