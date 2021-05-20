@@ -10,6 +10,7 @@ environ = "*"
 djangorestframework = "*"
 channels-redis = "*"
 channels = "*"
+django-cryptography = "*"
 
 [dev-packages]
 coverage = "*"
