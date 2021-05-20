@@ -16,7 +16,7 @@ class Message(models.Model):
     # define amount of messages to load 
     #load most recent 30 messages
     def last_10_messages(self):
-        return Message.objects.orger_by('-timestamp').all()[:10]
+        return Message.objects.order_by('-timestamp').all()[:10]
 
 
 

@@ -68,6 +68,8 @@ class ChatConsumer(WebsocketConsumer):
         data = json.loads(text_data)
         self.commands[data['command']](self, data)
 
+
+# ERROR??????
     def send_chat_message(self, message):
         #message = data['message']
         async_to_sync(self.channel_layer.group_send)(
