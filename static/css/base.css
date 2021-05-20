@@ -2,7 +2,7 @@
 :root{
   --blue: #2F80ED;
   --green:#44BFA1;
-  --head-fonts: 5rem 'Playfair Display', serif;
+  --head-fonts: 5rem 'KoHo', sans-serif;
   --content-fonts: 1.5rem 'Oxygen', sans-serif;
   --hnf-size: 2.5rem;
 }

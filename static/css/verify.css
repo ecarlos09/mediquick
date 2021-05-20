@@ -11,7 +11,7 @@ html, body{
     margin:0;
     padding: 0;
     font-family: var(--content-fonts);
-    font-size: 20px;
+    font-size: 18px;
     display: grid;
     grid-template-rows: 1fr auto;
 }
@@ -24,15 +24,27 @@ main{
     grid-row-start: 1;
     grid-row-end: 2;
 }
+label{
+    /* margin: 2px 1px; */
+    font: var(--content-fonts);
+    font-size:15px;
+}
 
 form{
     margin-top: 30%;
     justify-content: center;
     
 }
+
+div.form-group{
+    margin: 5px;
+}
 /* .row{
     height: 90vh;
 } */
+form ul li:nth-child(1){
+    display:none;
+}
 
 .cover{
     background-color: blue;
@@ -44,22 +56,19 @@ form{
     background-repeat: no-repeat; */
     background: var(--blue);
     background:
-    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
-    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
-    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
-    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
-    var(--blue);;
+        linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+        linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+        linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+        linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+        var(--blue);
     background-size: 15px 30px;
 }
 
 footer{
     padding-top: 6px;
     /* background-color: var(--blue); */
-    
     grid-row-start: 2;
     grid-row-end: 3;
-    
- 
 }
 
 form button{
@@ -75,36 +84,30 @@ form button{
     color: white;
     text-align:center;
     
-
-    
 }
-
-label{
-    margin: 2px 1px;
-    font: var(--content-fonts);
-    font-size:16px;
-}
-
 
 a:hover{
     color:var(--green);
 }
 
+p{
+    text-align: center;
+    font: var(--content-fonts);
+    font-size: 18px;
+}
 
 @media screen and (min-width:1318px) {
     form{
         justify-content: center;
-        margin-top: 5%;
-        margin-left: 5%;
+        margin-top: 5px;
     }
     h1{
         margin-top: 15%;
         text-align: center;
-        font: var(--head-fonts);
+        font: var(--content-fonts);
         font-size: 2.6rem;
         font-weight: 600;
     }
-
    
 }
 
