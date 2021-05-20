@@ -10,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+D');
 
 .section-container{
-    display: absolute;
+    /* display: absolute; */
     height: 30vh;
 }
 
@@ -20,21 +20,57 @@
     top: 0;
     justify-content: center;
     width: 130vw;
-    height: 60%;
+    height: 55%;
     left: -15%;
     border-bottom: 1px solid var(--blue);
-    border-bottom-left-radius: 60%;
-    border-bottom-right-radius: 60%;
+    border-bottom-left-radius: 70%;
+    border-bottom-right-radius: 70%;
     z-index: -1;
 }
 
-h1{
+#hero{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 15vh;
+}
+
+#home-centerpiece{
+    height: 600px;
+    z-index: 0;
+}
+
+.overlay{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+    top: 18vh;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    width: 80%;
+    padding: 5px 10px;
+    background: rgba(47, 128, 237, 0.35);
+    z-index: 1;
+}
+
+.overlay > * {
+    z-index: 2;
+}
+
+
+.overlay h1, .overlay h3{
     /* font-family: var(--head-fonts);
     font-size: 3rem; */
     font: var(--head-fonts);
     color: white;
     text-align: center;
     font-family: 'Playfair Display', serif;
+}
+
+.overlay h3{
+    font-size: var(--hnf-size);
 }
 
 #lower{
@@ -44,7 +80,6 @@ h1{
     flex-direction: column;
     height: 20vh;
     align-items: center;
-    
 }
 
 div.button{
@@ -83,7 +118,35 @@ div.button{
     color: white;
     line-height: 5px;
 } */
-#hero{
-    background-image: url('../images/ladywithcomputer.png');
-    height: 50px;
-}
+
+@media screen and (min-width:1318px) {
+    .section-container{
+        /* display: absolute; */
+        height: 20vh;
+    }
+
+    #hero{
+        display: flex;
+        justify-content: center;
+    }
+
+    #home-centerpiece{
+        height: 400px;
+        z-index: 0;
+    }
+    
+    #cover{
+        background-color: var(--blue);
+        position: fixed;
+        top: 0;
+        justify-content: center;
+        width: 120vw;
+        height: 55%;
+        left: -15%;
+        border-bottom: 1px solid var(--blue);
+        border-bottom-left-radius: 90%;
+        border-bottom-right-radius: 90%;
+        z-index: -1;
+    }
+
+} 
