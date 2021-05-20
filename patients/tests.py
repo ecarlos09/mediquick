@@ -1,6 +1,7 @@
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.test import Client, TestCase
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 from users.models import CustomUser
 
@@ -19,10 +20,16 @@ from users.models import CustomUser
 #     c = Client()
 
 #     def test_home(self):
-#         response = self.c.get(reverse('adoption-home'))
+#         response = self.c.get(reverse('index'))
 #         assert "doggos" in response.context
 #         assert response.context['doggos'].count() == 1
-#         assert "adoption/home.html" in [t.name for t in response.templates]
+#         assert "public/home.html" in [t.name for t in response.templates]
+
+#         def test_home(self):
+#         response = self.c.get(reverse('library-home'))
+#         expected_html = render_to_string('home.html')
+#         assert "Biblioteca" in expected_html
+#         assert "home.html" in [t.name for t in response.templates]
 
 #     def test_about(self):
 #         response = self.c.get(reverse('adoption-about'))
