@@ -60,3 +60,7 @@ ul
   list-style:none;
   justify-content: space-evenly;
 }
+
+.container-policy {
+  color: red; 
+}

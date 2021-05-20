@@ -1,55 +1,30 @@
 {% extends 'public/base.html' %}
+{% load static %}
 
-{% block title %}
-<div class="title-testimonials">Testimonials</div>
-{% endblock %}
+{% block title %}Testimonials{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" type="text/html" href="{% static 'public/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'public/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'public/css/testimonials.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h1>Here are our Doctors!</h1>
-    <p>Transparency is a key factor for our app and for this reason we would like to highlight our top performing doctors here!</p>
-    <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <title>Layered Card Hover</title>
-</head>
-<body>
-  <div class="box">
-      <div class="card">
-        <div class="imgBx">
-            <img src="https://images.unsplash.com/photo-1532123675048-773bd75df1b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="images">
-        </div>
-        <div class="details">
-            <h2>SomeOne Famous<br><span>Director</span></h2>
-        </div>
-      </div>
-    
-       <div class="card">
-         <div class="imgBx">
-            <img src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="images">
-         </div>
-         <div class="details">
-            <h2>SomeOne Famous<br><span>Producer</span></h2>
-          </div>
-       </div>
+    <div class="testimonials-container">
+      <h2>Testimonials</h2>
+      <p>Transparency is a key factor for our app and for this reason we would like to highlight our top performing doctors here!</p>
+      <p>Let's go <a href="{ url 'patient-home'}">Home</a></p>
 
-       <div class="card">
-         <div class="imgBx">
-            <img src="https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="images">
-         </div>
-         <div class="details">
-            <h2>SomeOne Famous<br><span>Actor</span></h2>
-          </div>
-       </div>
- 
-  </div>
-</body>
-</html>
-    <p>Let's go <a href="{ url 'patient-home'}">Home</a></p>
+      <div class="testimonials-card">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi eaque excepturi adipisci nam ipsa fugiat illo sed deleniti doloribus ducimus, ab, odio sapiente in incidunt molestias harum eum quo accusamus?
+      </div>
+
+      <div class="testimonials-card">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi eaque excepturi adipisci nam ipsa fugiat illo sed deleniti doloribus ducimus, ab, odio sapiente in incidunt molestias harum eum quo accusamus?
+      </div>
+
+      <div class="testimonials-card">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi eaque excepturi adipisci nam ipsa fugiat illo sed deleniti doloribus ducimus, ab, odio sapiente in incidunt molestias harum eum quo accusamus?
+      </div>
+
+    </div>
 {% endblock %}
