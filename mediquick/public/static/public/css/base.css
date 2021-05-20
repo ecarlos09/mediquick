@@ -3,6 +3,7 @@
 :root{
   --blue: #2F80ED;
   --head-fonts: 5rem 'Playfair Display', serif;
+  --content-fonts: 'Oxygen', sans-serif;
   --content-fonts: 2rem 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   --hnf-size: 2.5rem;
 }
@@ -15,6 +16,7 @@
 
 body{
   height: 100vh;
+  font-family: var(--content-fonts);
 }
 
 .nav {
@@ -72,4 +74,10 @@ ul
   :root{
     --hnf-size: 1.5rem;
   }
+  footer{
+  
+    height: 50px;           
+
+  }
+  
 }
