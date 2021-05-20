@@ -7,7 +7,7 @@
 } */
 /* mobile first */
 @import url('./base.css');  
-@import url('https://fonts.googleapis.com/css2?family=Playfair+D');
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+D'); */
 
 .section-container{
     /* display: absolute; */
@@ -44,7 +44,6 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    width: 100vw;
     top: 18vh;
     flex-direction: column;
     text-align: center;
@@ -115,8 +114,13 @@ div.button{
     /* text-transform: uppercase; */
 }
 
-.section-container > a:hover{
-    color:red;
+div.button:hover{
+   background-color: #44BFA1;
+   color:white;
+}
+
+a:hover{
+    color: #44BFA1;
 }
 /* 
 .button a{
@@ -131,27 +135,69 @@ div.button{
     }
 
     #hero{
-        display: flex;
-        justify-content: center;
+        top: 5vh;
     }
 
     #home-centerpiece{
         height: 400px;
         z-index: 0;
     }
+
+    .overlay h1{
+        font-weight: 500;
+    }
     
     #cover{
-        background-color: var(--blue);
-        position: fixed;
-        top: 0;
-        justify-content: center;
         width: 120vw;
         height: 55%;
         left: -15%;
-        border-bottom: 1px solid var(--blue);
         border-bottom-left-radius: 90%;
         border-bottom-right-radius: 90%;
-        z-index: -1;
     }
+    
+    .overlay{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 18vh;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+        width: 60%;
+        padding: 5px 10px;
+        background: rgba(47, 128, 237, 0.35);
+        z-index: 1;
+    }
+    
+    .overlay > * {
+        z-index: 2;
+    }
+    
+    .overlay h1{
+        font-weight: 600;
+    }
+    
+    .overlay h3{
+        font-size: var(--hnf-size);
+    }
+    
+    #lower{
+        margin: 16% 0 0; 
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        height: 30vh;
+        align-items: center;
+    }
+    
+    div.button{
+        font-size: 2rem;
+        width: 25vw;
+        text-align: center;
+        border-radius: 20px;
+        height: 70px;
+        margin-bottom: 10%;
+        flex-direction: column;
+      }
 
 } 
