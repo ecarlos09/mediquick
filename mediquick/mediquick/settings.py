@@ -163,6 +163,7 @@ LOGIN_URL = 'login'
 
 # two factor
 AUTH_USER_MODEL = 'users.CustomUser'
+<<<<<<< HEAD
 # two factor end 
 
 # CHAT FEATURE SETTINGS STARTS HERE
@@ -212,3 +213,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+=======
+# two factor end
+>>>>>>> origin/staging
