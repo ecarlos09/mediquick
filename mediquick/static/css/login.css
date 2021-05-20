@@ -4,12 +4,25 @@
     padding: 0;
 }
 
-html{
+html, body{
     max-width: 100vw;
+    height:100%;
     max-height: 100vh;
     margin:0;
     padding: 0;
+    font-family: var(--content-fonts);
+    font-size: 20px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+nav{
+    grid-row-start: 0;
+    grid-row-end: 1;
+}
 
+main{
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
 
 form{
@@ -17,9 +30,10 @@ form{
     justify-content: center;
     
 }
-.row{
+/* .row{
     height: 90vh;
-}
+} */
+
 .cover{
     background-color: blue;
     height:100%;
@@ -41,6 +55,10 @@ form{
 footer{
     padding-top: 6px;
     background-color: var(--blue);
+    
+    grid-row-start: 2;
+    grid-row-end: 3;
+    
  
 }
 footer p{
@@ -74,7 +92,7 @@ button:hover{
         margin-top: 15%;
         text-align: center;
         font: var(--head-fonts);
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 600;
     }
    
