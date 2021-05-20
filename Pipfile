@@ -9,7 +9,7 @@ django-environ = "*"
 environ = "*"
 djangorestframework = "*"
 channels-redis = "*"
-channels = "*"
+django-bootstrap4 = "*"
 
 [dev-packages]
 coverage = "*"
