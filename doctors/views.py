@@ -25,10 +25,12 @@ def doctor_home(request, user_id):
             'title': user_id,
             'user_number': user_id,
             'name': "Strange"
+            # 'user_home': 'doctor-home'
         }
         return render(request, 'doctors/doctor-home.html', data)
     else:
-        return redirect('login')
+        return render(request, 'public/errors/405.html')
+        # return redirect('405')
 
 ''' Requires editing still '''
 def doctor_schedule(request):
