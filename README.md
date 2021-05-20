@@ -5,4 +5,6 @@ Advancing health care into the future generation
 
 Check out our deployed app!
 
+[![Heroku](https://heroku-badge.herokuapp.com/?app=medi-quick)]
+
 https://medi-quick.herokuapp.com/
