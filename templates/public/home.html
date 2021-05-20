@@ -1,0 +1,27 @@
+{% extends "public/base.html" %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'public/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="upper" class="section-container">
+    <div id="cover"></div>
+    <h1>MediQuick</h1>
+</div>
+<div id="hero"></div>
+<div id="lower" class="section-container">
+    <a href="login"><div class="button">
+        <p>Login</p>
+    </div></a>
+    <a href="register">
+        <div class="button">
+            <p>Get  Started</p>
+        </div></a>
+</div>
+   
+{% endblock %}
+
