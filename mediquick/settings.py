@@ -38,12 +38,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
-    # 'channels',
-=======
     'bootstrap4',
     'channels',
->>>>>>> origin/greta-patient-dashboard
     'chat',
     'codes',
     'django.contrib.admin',
