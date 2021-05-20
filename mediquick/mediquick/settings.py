@@ -27,12 +27,12 @@ PROJECT_ROOT = BASE_DIR
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# import environ
-# env = environ.Env()
-# environ.Env.read_env()
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
-# SECRET_KEY = env('SECRET_KEY') if env('SECRET_KEY')==None else os.environ['SECRET_KEY']
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = env('SECRET_KEY') if env('SECRET_KEY')==None else os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
 # with open('./.env') as f:
 #     SECRET_KEY = f.read().strip()
 
@@ -157,8 +157,8 @@ USE_TZ = True
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_HOST_USER = 'mediquick.adm1n@outlook.com'
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 25
 
 # Default primary key field type
@@ -173,10 +173,6 @@ LOGIN_URL = 'login'
 # two factor
 AUTH_USER_MODEL = 'users.CustomUser'
 # two factor end
-
-''' Deployment configuration '''
-
-django_heroku.settings(locals())
 
 '''Database configuration'''
 import dj_database_url
@@ -212,7 +208,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
     },
 }
@@ -251,3 +247,7 @@ STATICFILES_FINDERS = [
 ]
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+''' Deployment configuration '''
+
+django_heroku.settings(locals())
