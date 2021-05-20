@@ -1,6 +1,14 @@
 {% extends "public/base.html" %}
-
 {% load static %}
+
+{% block title %} Login {% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'public/css/base.css' %}">
+{% endblock %}
+    
+
+
 {% load bootstrap4 %}
 
 {# Load CSS and JavaScript #}
@@ -9,8 +17,15 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
-{% block content %}
 
+
+
+
+
+{% block content %}
+<div class="container p-5">
+
+    <h1>Sign in to MediQuick</h1>
     <form method="POST">
         {% csrf_token %}
         {% bootstrap_form form %}
@@ -24,4 +39,7 @@
         No account yet?
         <a href="{% url 'register' %}">Register here</a>
     </span>
+
+</div>
+  
 {% endblock content %}
