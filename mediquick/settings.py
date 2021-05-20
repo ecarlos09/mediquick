@@ -240,20 +240,14 @@ PROJECT_ROOT = BASE_DIR
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 # Collect static files here
 STATIC_URL = '/static/'
-
-# look for static assets here
-STATICFILES_DIRS = [
-    join(PROJECT_ROOT, 'static'),
-]
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_ROOT = join(PROJECT_ROOT, 'run', 'static_root')
-
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
+STATICFILES_DIRS = []
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
-
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
