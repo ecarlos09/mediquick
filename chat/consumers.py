@@ -26,35 +26,21 @@ class ChatConsumer(WebsocketConsumer):
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
-
-        # Send message to room group
+        username = text_data_json['username']
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
                 'type': 'chat_message',
-                'message': message
+                'message': message,
+                'username': username
             }
         )
-
     # handle the message
     def chat_message(self, event):
         message = event['message']
-
+        username = event['username']
         # Send message to WebSocket
         self.send(text_data=json.dumps({
-            'message': message
+            'message': message,
+            'username': username
         }))
-
-# class LobbyConsumer(AsyncWebsocketConsumer):
-#     @database_sync_to_async
-#     def available_roooms(self):
-#         serialized_data = serializers.serialize("json", Room.objects.filter(users=1))
-#         return serialized_data
-        
-
-#     async def connect(self):
-#         await self.accept()
-        
-#         while True:
-#             l = await self.available_roooms()
-#             await self.send(text_data = l)

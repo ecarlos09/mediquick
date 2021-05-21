@@ -41,7 +41,7 @@ DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['https://medi-quick.herokuapp.com/']
-
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -113,6 +113,8 @@ DATABASES = {
     }
 }
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -190,7 +192,7 @@ DATABASES['default'].update(db_from_env)
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # two factor end 
 
-# CHAT FEATURE SETTINGS STARTS HERE
+# CHAT FEATURE SETTINGS STARTS 
 # ASGI_APPLICATION = 'mediquick.routing.application'
 ASGI_APPLICATION = "mediquick.asgi.application"
 
@@ -207,9 +209,11 @@ ASGI_APPLICATION = "mediquick.asgi.application"
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        #"BACKEND": "asgi_redis.RedisChannelLayer",
         'CONFIG': {
             "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
+        "ROUTING": "mediquick.routing.channel_routing",
     },
 }
 
@@ -234,13 +238,29 @@ PROJECT_ROOT = BASE_DIR
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+''' Deployment configuration '''
+
+django_heroku.settings(locals())
+
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Collect static files here
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
-STATICFILES_DIRS = []
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+MEDIA_ROOT = 'static/media'
+MEDIA_URL = '/media/'
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+#     '/var/www/static/',
+# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+# STATICFILES_DIRS = []
+
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -248,6 +268,7 @@ STATICFILES_FINDERS = [
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-''' Deployment configuration '''
+HOST_URL = 'https://medi-quick.herokuapp.com'
+if DEBUG:
+    HOST_URL = 'http://127.0.0.1:8000'
 
-django_heroku.settings(locals())

@@ -35,3 +35,21 @@ class TestBasicViews(TestCase):
         assert "not you" in expected_html
         assert "it's us" in expected_html
         assert "public/errors/500.html" in [t.name for t in response.templates]
+
+    def test_policy(self):
+        response = self.c.get(reverse('policy'))
+        expected_html = render_to_string('public/policy.html')
+        assert "privacy" in expected_html
+        assert "public/policy.html" in [t.name for t in response.templates]
+        
+    def test_support(self):
+        response = self.c.get(reverse('support'))
+        expected_html = render_to_string('public/support.html')
+        assert "Contact us" in expected_html
+        assert "public/support.html" in [t.name for t in response.templates]
+
+    def test_testimonials(self):
+        response = self.c.get(reverse('testimonials'))
+        expected_html = render_to_string('public/testimonials.html')
+        assert "Testimonials" in expected_html
+        assert "public/testimonials.html" in [t.name for t in response.templates]   
