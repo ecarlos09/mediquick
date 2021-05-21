@@ -37,11 +37,12 @@ SECRET_KEY = env('SECRET_KEY') if env('SECRET_KEY')==None else os.environ['SECRE
 #     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+#DEBUG = False
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+
 HOST_URL = 'https://medi-quick.herokuapp.com'
-if DEBUG:
-    HOST_URL = 'http://127.0.0.1:8000'
+# if DEBUG:
+#     HOST_URL = 'http://127.0.0.1:8000'
 
 
 
