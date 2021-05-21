@@ -1,22 +1,37 @@
 {% extends "patients/base.html" %}
+{% load static %}
+{% load bootstrap4 %}
 
-{% block title %} Doctor Room{% endblock %}
+{% block title %} Consultation Room{% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 id="consultation-with">Consultation Room</h1>
+    <div class="chat-box" id="here"> 
+        
+    </div>
+    <input id="chat-message-input" type="text" size="100"><br>
+    <input class="btn btn-primary" id="chat-message-submit" type="button" value="Send">
+</div>
+
+
+{% endblock %}
 {% block script %}
 
-{% block name %}{{name}}{% endblock %}
-
-    <div class="chat boxes"> 
-        <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-        <input id="chat-message-input" type="text" size="100"><br>
-        <input id="chat-message-submit" type="button" value="Send">
-    </div>
- 
-
     {{ room_name|json_script:"room-name" }}
+    {{ username|json_script:"username" }}
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
+        const username = JSON.parse(document.getElementById('username').textContent);
 
+        const consult = document.getElementById("consultation-with");
+
+      
         const chatSocket = new WebSocket(
             'ws://'
             + window.location.host
@@ -24,11 +39,33 @@
             + roomName
             + '/'
         );
-
-        //on message received
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            document.querySelector('#chat-log').value += (data.message + '\n');
+
+            let sender = document.createElement("h6");
+            sender.textContent = data.username
+            sender.setAttribute("class", "sender");
+
+            let senderMessage = document.createElement("p");
+            senderMessage.textContent = data.message;
+            senderMessage.setAttribute("class", "content");
+     
+            let chatDiv = document.createElement("div");
+            
+            chatDiv.setAttribute("class", "message");
+            
+            if(data.username === username){
+                chatDiv.setAttribute("class", "message author");
+                sender.setAttribute("class", " author sender");
+                senderMessage.setAttribute("class", "author content");
+            } else {
+                chatDiv.setAttribute("class", "message");
+            }
+
+            chatDiv.appendChild(sender)
+            chatDiv.appendChild(senderMessage)
+            
+            document.getElementById("here").appendChild(chatDiv)
         };
 
         chatSocket.onclose = function(e) {
@@ -46,7 +83,8 @@
             const messageInputDom = document.querySelector('#chat-message-input');
             const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
-                'message': message
+                'message': message,
+                'username': username,
             }));
             messageInputDom.value = '';
         };

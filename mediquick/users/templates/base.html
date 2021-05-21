@@ -12,11 +12,9 @@
 <head>
  
   <title>MediQuick | {% block title %} {% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <link rel="shortcut icon" type="image/jpg" href="{% static 'media/crossign.png'%/}">
+  <!-- <link rel="stylesheet" href="{% static 'public/css/base.css' %}"> -->
+  <link rel="shortcut icon" type="image/jpg" href="{% static 'public/images/crossign.png'%/}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">  
-  <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
   <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@200;300;400;600&display=swap" rel="stylesheet">
   {% block head %}
@@ -28,7 +26,7 @@
     <div class="nav">
       <h4>MediQuick</h4>
       <a href="/"><p>Home</p></a>
-      <a href="/testimonials/"><p>Testimonials</p></a>
+      <a href="/testimonials"><p>Testimonials</p></a>
     </div>
   </nav>
   <main>
@@ -37,7 +35,7 @@
     {% endblock %}
   </main>
  
-  <div class="fixed-bottom">
+
    <footer>
      <ul>
       <a href="/policy"><li>
@@ -52,7 +50,6 @@
       
     </ul> 
    </footer>
-  </div>
    {% block script %}
    {% endblock %}
 </body>

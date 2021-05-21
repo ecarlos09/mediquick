@@ -1,7 +1,14 @@
-{% extends "public/base.html" %}
-
+{% extends "./base.html" %}
 {% load static %}
 {% load bootstrap4 %}
+
+{% block title %} Login {% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
 
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
@@ -9,19 +16,53 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
+
 {% block content %}
+<div class="container">
 
-    <form method="POST">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-   
-        <!-- {{ form.as_p }} -->
-        {% bootstrap_button "Submit" button_type="submit" value="Login" button_class="btn-primary" %}
-        <!-- <input type="submit" value="Login"> -->
-    </form>
+    <!-- <div class="row">
+        <div class="col">
+            <div class="cover">
+                <div class="container">
+                        <h1 class="header-text">
+                            Welcome back!
+                        </h1>
+                       
+                </div>
+            </div>
+        </div>
+   -->
 
-    <span class="helptext">
-        No account yet?
-        <a href="{% url 'register' %}">Register here</a>
-    </span>
+    
+        <!-- <div class="col p-2 narrow"> -->
+            <h1>
+                Sign in to <span class="mediquick">MediQuick</span>
+            </h1>
+            <!-- <div class="row"> -->
+                
+                <!-- <div class="col"> -->
+                <!-- <span class="align-middle"> -->
+                   
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                
+                        <!-- {{ form.as_p }} -->
+                        {% bootstrap_button "Submit" button_type="submit" value="Login" button_class="btn-primary" %}
+                        <!-- <input type="submit" value="Login"> -->
+                        <span class="helptext">
+                            No account yet?
+                            <a href="{% url 'register' %}">Register here</a>
+                        </span>
+                    </form>
+                <!-- </span> -->
+                </div> 
+                <!-- <div class="col-1"></div> -->
+            <!-- </div> -->
+        </div>
+
+    <!-- <h1>Sign in to MediQuick</h1> -->
+    
+<!-- </div> -->
+  
 {% endblock content %}

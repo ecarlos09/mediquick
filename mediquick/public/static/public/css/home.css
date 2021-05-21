@@ -83,3 +83,17 @@ div.button{
     color: white;
     line-height: 5px;
 } */
+#hero{
+    background-image: url('../images/ladywithcomputer.png');
+    height: 50px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form {
+    margin-left: 2rem;
+}
+

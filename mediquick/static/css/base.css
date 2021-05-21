@@ -1,0 +1,109 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+D'); */
+:root{
+  --blue: #2F80ED;
+  --green:#44BFA1;
+  --head-fonts: 5rem 'KoHo', sans-serif;
+  --content-fonts: 1.5rem 'Oxygen', sans-serif;
+  --hnf-size: 2.5rem;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100vh;
+  font-size: 20px;
+  font-family: var(--content-fonts);
+}
+
+.nav {
+    padding-top: 10px;
+    padding-bottom: -2px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    padding-left: 5px;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: royalblue 1px solid;
+    background-color: var(--blue);
+    padding-right: 35px;
+}
+
+.nav h4{
+  color: white;
+  text-align: left;
+  width: 80%;
+  font: var(--head-fonts);
+  font-size: 1.5rem;
+}
+
+.nav a{
+  color: white;
+  font-size: 3rem;
+  text-decoration: none;
+  padding: 5px 25px;
+  font:var(--content-fonts);
+  font-size: var(--hnf-size);
+
+}
+
+nav a:hover{
+  color: #44BFA1;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+button.btn.btn-primary:hover{
+  background-color: var(--green);
+}
+
+footer{
+  /* display: fixed;
+  bottom: 0;
+  align-items: center;
+  width: 100vw; */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;            /* Footer height */
+  font:var(--content-fonts);
+  padding-top: 5px;
+}
+
+footer a{
+  color: grey;
+  font-size: var(--hnf-size);
+  margin: 5px 10px 0;
+
+}
+
+ul
+{
+  margin: 0 10px;
+  display:flex;  
+  list-style:none;
+  justify-content: space-evenly;
+}
+
+@media screen and (min-width:1318px) {
+  :root{
+    --hnf-size: 1rem;
+    --head-fonts: 3rem 'KoHo', sans-serif;
+    --content-fonts: 1.5rem 'Oxygen', sans-serif;
+  }
+
+  footer{
+    height: 50px;
+    border-top: solid 0.5px rgb(219, 219, 219);          
+  }
+  
+}
