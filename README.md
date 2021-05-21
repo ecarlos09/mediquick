@@ -61,6 +61,8 @@ Django web development framework - this decision was made due to Django's extens
 
 Django channels & mail - communication is a key cornerstone of our app, it is designed to be easy and flexible for patients and doctors to connect, therefore the in-built django libraries for channels (web sockets) and mail (two factor authentication/support) was chosen.
 
+SQLlite3 - inbuilt django database used for the ease of integration into our app and the need for relational data 
+
 Client: 
 
 Bootstrap4 - used to make slick and nice looking designs on the client
@@ -70,10 +72,20 @@ Bootstrap4 - used to make slick and nice looking designs on the client
 
 ## Planning and development of app
 DevOps process
-...
-Bugs
- ...
 
+The initial idea creation phase was as follows: 
+
+Figma design - Once the idea was clearly defined, we created figma designs to visualise the app before creating it
+
+Database design - This was then proceeded by designing the database so we could understand the flow of data through our ap
+
+User Story - The next main step within planning was to fully flesh out the user journey so we could begin development
+
+GitHub actions board - During development we worked on separate feature branches and were highly communicative within the team about which tasks needed to be completed. Each member was assigned tasks on the project board and consequently worked on these tasks. 
+
+Bugs
+
+A bug in our app is the error handling elements that weren't fully implemented although the html templates where designed appropriately. However, there were issues integrating into our app and due to time limitations this was not seen as a priority at this moment. 
 
  
 ## Wins & Challenges
@@ -93,8 +105,15 @@ Bugs
 - Originally we had planned to have more features in the app, e.g. scheduling feature and doctor view. However, due to time limitations we had to consider refining our MVP. 
 - Team management and work flow proved to be a big challenge, due to the size of the team being fairly small for a larger project, the productivity in the early stages was slower. However, this exercise proves the flexibility and adaptability within the team to be able to find solutions to different scenarios!
 
+
+
 ## Significant Code
 (Place image of code snippets here)
+{"A?":"B","a":5,"d":"B","h":"www.canva.com","c":"DAEe8NAZUR4","i":"Us-WzufjzcWzLvncnqZyEA","b":1621578007312,"A":[{"A?":"I","A":352.9843634473119,"B":682.4428091684845,"D":1223.0138271617052,"C":470.33269831304614,"a":{"B":{"A":{"A":"MAEfBh0qRUw","B":1},"B":{"A":-91.26499506115684,"B":-86.70174530809902,"D":1432.8947894328885,"C":652.8626884353599}}}}],"B":1920,"C":1080}
+
+{"A?":"B","a":5,"d":"B","h":"www.canva.com","c":"DAEe8NAZUR4","i":"Us-WzufjzcWzLvncnqZyEA","b":1621578007312,"A":[{"A?":"I","A":340.4606819194761,"B":779.463698691221,"D":1032.536301308779,"C":435.1402984086997,"a":{"B":{"A":{"A":"MAEfBVSl4SE","B":1},"B":{"A":-2.842170943040401e-14,"B":-1.1368683772161603e-13,"D":1032.5363013087792,"C":435.1402984086998}}}}],"B":1920,"C":1080}
+
+
 
 ## Future Features
 
