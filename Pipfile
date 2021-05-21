@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==3.1"
+django-environ = "*"
+environ = "*"
+gunicorn = "*"
+dj-database-url = "*"
+whitenoise = "*"
+psycopg2 = "*"
+django-heroku = "*"
+djangorestframework = "*"
+channels-redis = "*"
+django-bootstrap4 = "*"
+daphne = "*"
+
+[dev-packages]
+coverage = "*"
+
+[requires]
+python_version = "3.8.8"
+
+[scripts]
+dev = "python ./mediquick/manage.py runserver"
+migrate = "python ./mediquick/manage.py migrate"
+test = "python ./mediquick/manage.py test mediquick"
+initcov = "coverage run --source='.' ./mediquick/manage.py test mediquick"
+viewcov = "coverage report"
+checkdeploy = "python ./mediquick/manage.py check --deploy"
