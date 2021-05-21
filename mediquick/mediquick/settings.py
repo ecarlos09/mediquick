@@ -43,10 +43,10 @@ SECRET_KEY = env('SECRET_KEY') if env('SECRET_KEY')==None else os.environ['SECRE
 HOST_URL = 'https://medi-quick.herokuapp.com'
 # if DEBUG:
 #     HOST_URL = 'http://127.0.0.1:8000'
+CORS_ALLOW_ALL_ORIGINS = True
 
 
-
-ALLOWED_HOSTS = ['https://medi-quick.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ['*']
 
 # Application definition
