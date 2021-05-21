@@ -119,6 +119,7 @@ The initial idea creation phase was as follows:
 ## Bugs 
 - [ ] Custom error pages, such as 404, are not displayed when desired
 - [ ] Styling does not appear to be applied fully in production mode
+- [ ] Email server can only handle a limited number of requests before SPAM filters kick in.
 
 ***
 
