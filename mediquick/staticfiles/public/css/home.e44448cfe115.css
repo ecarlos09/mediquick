@@ -1,6 +1,6 @@
 
 /* mobile first */
-@import url('./base.css');  
+@import url("./base.1186dfbac509.css");  
 @import url('https://fonts.googleapis.com/css2?family=Playfair+D');
 
 .section-container{
@@ -78,7 +78,7 @@ div.button{
     line-height: 5px;
 } */
 #hero{
-    background-image: url('../images/ladywithcomputer.png');
+    background-image: url("../images/ladywithcomputer.9ec866397fc0.png");
     height: 50px;
 }
 

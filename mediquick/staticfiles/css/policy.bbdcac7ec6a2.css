@@ -1,0 +1,48 @@
+@import url("./base.f0d5efdfb3b1.css");
+
+body{
+    font: var(--content-fonts);
+}
+
+.container-policy {
+    padding-left: 170px;
+    width: 75%;
+}
+
+p{
+    font-size: 18px;
+}
+
+li{
+    font-size: 18px;
+}
+
+h1{
+    font-size: 35px;
+}
+
+h2{
+    font-size: 25px;
+}
+
+main{
+    padding-bottom: 100px;
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+.empty{
+    height: 50px;
+ 
+}
+
+footer{
+    background-color: var(--blue);
+}
+footer a{
+    color: white;
+}
+
+footer a:hover{
+    color: var(--green);
+}
