@@ -9,6 +9,8 @@ Advancing diagnosis into the future generation
 
 https://medi-quick.herokuapp.com/
 
+[N.B.  The current deployed version does not reflect recent changes made to styling and functionality.  Our most recent version will be live soon.  Watch this space!]
+
 ## Description
 
 The B word.  We've all said it.
