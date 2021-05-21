@@ -136,8 +136,13 @@ def verify_view(request, user_id):
             message = f'Here is your OTP: {code}.'
             recipient = user.email #'elwin.carlos09@gmail.com' # change to user
             print(f'EMAIL RECIPIENT: {recipient}')
+#
 
-            send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently = False)
+
+
+
+
+            # send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently = False)
             print('email sent')
             print(f'is form valid? : {form.is_valid()}')
             #does form.valid does not work
