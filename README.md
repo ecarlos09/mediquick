@@ -125,11 +125,11 @@ A bug in our app is the error handling elements that weren't fully implemented a
 
 ## Future Features
 
-### Machine Learning Model - a plan to implement a predictive ML model, where patients would be able to enter their symptoms and get a prediction for their disease at which point they would be recommended a more specialised doctor was made. 
+- Machine Learning Model - a plan to implement a predictive ML model, where patients would be able to enter their symptoms and get a prediction for their disease at which point they would be recommended a more specialised doctor was made. 
 
-### Video Calls - implement video call technology for patients who prefer this type of communication
+- Video Calls - implement video call technology for patients who prefer this type of communication
 
-### Scheduling system - implement an appointment scheduling system for the patients to organise with the doctors in a slick and easy way
+- Scheduling system - implement an appointment scheduling system for the patients to organise with the doctors in a slick and easy way
 
 ## GDPR Considerations
 
