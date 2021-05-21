@@ -50,10 +50,7 @@ form ul li:nth-child(1){
     background-color: blue;
     height:100%;
     z-index: -1;
-    /* background-image: url('../../media/minimalism-gradient-wallpaper-preview.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; */
+
     background: var(--blue);
     background:
     linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,

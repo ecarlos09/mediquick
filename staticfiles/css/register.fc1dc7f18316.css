@@ -1,4 +1,4 @@
-@import url('./base.css');  
+@import url("./base.f0d5efdfb3b1.css");  
 *{
     margin:0;
     padding: 0;
@@ -25,7 +25,7 @@ main{
     grid-row-end: 2;
 }
 label{
-    /* margin: 2px 1px; */
+    margin: 2px 1px;
     font: var(--content-fonts);
     font-size:15px;
 }
@@ -53,19 +53,22 @@ form ul li:nth-child(1){
 
     background: var(--blue);
     background:
-        linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
-        linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
-        linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
-        linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
-        var(--blue);
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 0 0,
+    linear-gradient(115deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    linear-gradient(245deg, transparent 75%, rgba(255,255,255,.8) 75%) 7px -15px,
+    var(--blue);;
     background-size: 15px 30px;
 }
 
 footer{
     padding-top: 6px;
     /* background-color: var(--blue); */
+    
     grid-row-start: 2;
     grid-row-end: 3;
+    
+ 
 }
 
 form button{
@@ -87,11 +90,6 @@ a:hover{
     color:var(--green);
 }
 
-p{
-    text-align: center;
-    font: var(--content-fonts);
-    font-size: 18px;
-}
 
 @media screen and (min-width:1318px) {
     form{
@@ -99,9 +97,9 @@ p{
         margin-top: 5px;
     }
     h1{
-        margin-top: 15%;
+        margin-top: 5%;
         text-align: center;
-        font: var(--content-fonts);
+        font: var(--head-fonts);
         font-size: 2.6rem;
         font-weight: 600;
     }
