@@ -37,8 +37,13 @@ SECRET_KEY = env('SECRET_KEY') if env('SECRET_KEY')==None else os.environ['SECRE
 #     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+# DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+HOST_URL = 'https://medi-quick.herokuapp.com'
+if DEBUG:
+    HOST_URL = 'http://127.0.0.1:8000'
+
+
 
 ALLOWED_HOSTS = ['https://medi-quick.herokuapp.com/']
 # ALLOWED_HOSTS = ['*']
@@ -213,7 +218,7 @@ CHANNEL_LAYERS = {
         'CONFIG': {
             "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
-        "ROUTING": "mediquick.routing.channel_routing",
+        # "ROUTING": "mediquick.routing.channel_routing",
     },
 }
 
@@ -267,8 +272,4 @@ STATICFILES_FINDERS = [
 ]
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-HOST_URL = 'https://medi-quick.herokuapp.com'
-if DEBUG:
-    HOST_URL = 'http://127.0.0.1:8000'
 
