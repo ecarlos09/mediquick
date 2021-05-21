@@ -166,7 +166,7 @@ LOGIN_URL = 'login'
 AUTH_USER_MODEL = 'users.CustomUser'
 # two factor end 
 
-# CHAT FEATURE SETTINGS STARTS HERE
+# CHAT FEATURE SETTINGS STARTS 
 # ASGI_APPLICATION = 'mediquick.routing.application'
 ASGI_APPLICATION = "mediquick.asgi.application"
 
