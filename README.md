@@ -57,38 +57,38 @@ For this project, we used a lot of new technologies that we were exposed to duri
 
 Here is a list of the main technologies used along with a short description as to why.
 
-Dependencies:
-Api: 
+### Dependencies:
+#### Api: 
 
-Python - used for the backend of the app, as this was a great opportunity for us to use a different language to what we were used to and practise the language!
+- Python - used for the backend of the app, as this was a great opportunity for us to use a different language to what we were used to and practise the language!
 
-Django web development framework - this decision was made due to Django's extensive in-built features, which it easier to build the app rather than work from scratch using a technology such as python flask.
+- Django web development framework - this decision was made due to Django's extensive in-built features, which it easier to build the app rather than work from scratch using a technology such as python flask.
 
-Django channels & mail - communication is a key cornerstone of our app, it is designed to be easy and flexible for patients and doctors to connect, therefore the in-built django libraries for channels (web sockets) and mail (two factor authentication/support) was chosen.
+- Django channels & mail - communication is a key cornerstone of our app, it is designed to be easy and flexible for patients and doctors to connect, therefore the in-built django libraries for channels (web sockets) and mail (two factor authentication/support) was chosen.
 
-SQLlite3 - inbuilt django database used for the ease of integration into our app and the need for relational data 
+- SQLlite3 - inbuilt django database used for the ease of integration into our app and the need for relational data 
 
-Client: 
+#### Client: 
 
-Bootstrap4 - used to make slick and nice looking designs on the client
+- Bootstrap4 - used to make slick and nice looking designs on the client
 
 
 
 
 ## Planning and development of app
-DevOps process
+### DevOps process
 
 The initial idea creation phase was as follows: 
 
-Figma design - Once the idea was clearly defined, we created figma designs to visualise the app before creating it
+- Figma design - Once the idea was clearly defined, we created figma designs to visualise the app before creating it
 
-Database design - This was then proceeded by designing the database so we could understand the flow of data through our ap
+- Database design - This was then proceeded by designing the database so we could understand the flow of data through our ap
 
-User Story - The next main step within planning was to fully flesh out the user journey so we could begin development
+- User Story - The next main step within planning was to fully flesh out the user journey so we could begin development
 
-GitHub actions board - During development we worked on separate feature branches and were highly communicative within the team about which tasks needed to be completed. Each member was assigned tasks on the project board and consequently worked on these tasks. 
+- GitHub actions board - During development we worked on separate feature branches and were highly communicative within the team about which tasks needed to be completed. Each member was assigned tasks on the project board and consequently worked on these tasks. 
 
-Bugs
+### Bugs
 
 A bug in our app is the error handling elements that weren't fully implemented although the html templates where designed appropriately. However, there were issues integrating into our app and due to time limitations this was not seen as a priority at this moment. 
 
@@ -125,11 +125,11 @@ A bug in our app is the error handling elements that weren't fully implemented a
 
 ## Future Features
 
-Machine Learning Model - a plan to implement a predictive ML model, where patients would be able to enter their symptoms and get a prediction for their disease at which point they would be recommended a more specialised doctor was made. 
+### Machine Learning Model - a plan to implement a predictive ML model, where patients would be able to enter their symptoms and get a prediction for their disease at which point they would be recommended a more specialised doctor was made. 
 
-Video Calls - implement video call technology for patients who prefer this type of communication
+### Video Calls - implement video call technology for patients who prefer this type of communication
 
-Scheduling system - implement an appointment scheduling system for the patients to organise with the doctors in a slick and easy way
+### Scheduling system - implement an appointment scheduling system for the patients to organise with the doctors in a slick and easy way
 
 ## GDPR Considerations
 
@@ -141,6 +141,6 @@ Due to the nature of the app, in terms of the handling of sensitive health data,
 
 - Storage - all data that is stored is encrypted using django cryptography
 
-Slide Deck
+## Slide Deck
 
 https://www.canva.com/design/DAEe8NAZUR4/Us-WzufjzcWzLvncnqZyEA/edit
