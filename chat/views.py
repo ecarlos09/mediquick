@@ -21,3 +21,8 @@ def room(request, room_name):
         'name': name,
         'last_name': request.user.last_name,
     })
+
+@login_required
+def logout(request):
+    logout(request)
+    return render(request, 'patients/logout.html')

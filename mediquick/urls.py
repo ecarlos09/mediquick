@@ -37,5 +37,8 @@ urlpatterns = [
     path('doctors/', include('doctors.urls')),
     path('patients/', include('patients.urls')), 
     path('patients/', include('django.contrib.auth.urls')),
-       url(r'^logout', include('patients.urls')),
+    url(r'^logout/', include('patients.urls')),
+    url(r'^logout/', include('chat.urls')),
+    url(r'^logout/', include('users.urls')),
+    url(r'^logout/', include('doctors.urls')),
 ]
