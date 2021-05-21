@@ -97,6 +97,8 @@ ul
 @media screen and (min-width:1318px) {
   :root{
     --hnf-size: 1rem;
+    --head-fonts: 3rem 'KoHo', sans-serif;
+    --content-fonts: 1.5rem 'Oxygen', sans-serif;
   }
 
   footer{

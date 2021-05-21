@@ -1,8 +1,12 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/login/')
 def index(request):
     return render(request, 'chat/index.html', {})
 
+
+@login_required(login_url='/login/')
 def room(request, room_name):
     print(request.user.username)
 
@@ -11,6 +15,7 @@ def room(request, room_name):
     else: 
         name = request.user.first_name
     return render(request, 'chat/room.html', {
+        'user_number': request.user.id,
         'room_name': room_name,
         'username': request.user.username,
         'name': name,

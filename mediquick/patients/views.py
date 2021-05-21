@@ -1,5 +1,6 @@
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
 from users.models import CustomUser
@@ -13,7 +14,7 @@ from users.models import CustomUser
 # def server_error_500(request):
 #     return render(request, '500.html')
 
-@login_required
+@login_required(login_url='/login/')
 def patient_home(request, user_id):
     user = CustomUser.objects.get(pk=user_id)
     pk = str(request.session.get('pk'))
@@ -41,5 +42,7 @@ def patient_home(request, user_id):
 
 #     }
 #     return render(request, 'schedule-appointment.html', data)
-
-
+@login_required
+def logout(request):
+    logout(request)
+    return render(request, 'patients/logout.html')
