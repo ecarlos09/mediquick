@@ -114,10 +114,13 @@ A bug in our app is the error handling elements that weren't fully implemented a
 
 ## Significant Code
 
-<img width="600" height="300px" alt="auth-view" src="https://i.imgur.com/pO3twKq.png">
+<img align-items="center" width="600" height="200px" alt="auth-view" src="https://i.imgur.com/pO3twKq.png">
 
-<img width="600" height="200px" alt="habite" src="https://i.imgur.com/ea7qWCQ.png">
+- An example of the code used within the two factor authentication process
 
+<img align-items="center" width="600" height="200px" alt="habite" src="https://i.imgur.com/ea7qWCQ.png">
+
+- An example of the code used in the encryption process
 
 
 ## Future Features
