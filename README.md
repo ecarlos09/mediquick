@@ -3,7 +3,7 @@ by Ryan, Greta, Elwin
 
 Advancing diagnosis into the future generation
 
-***Check out our deployed app!
+***Check out our deployed app!***
 
 ![Heroku](https://pyheroku-badge.herokuapp.com/?app=medi-quick&style=flat)
 
