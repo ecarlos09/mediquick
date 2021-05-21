@@ -11,9 +11,7 @@
 
 {% block content %}
 <div class="container">
-    <h1>
-        Chat room
-    </h1>
+    <h1 id="consultation-with">Consultation Room</h1>
     <div class="chat-box" id="here"> 
         
     </div>
@@ -24,14 +22,6 @@
 
 {% endblock %}
 {% block script %}
-<!-- <div class="container">
-    <div class="chat boxes"> 
-        <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-       
-    </div>
-</div> -->
-    
- 
 
     {{ room_name|json_script:"room-name" }}
     {{ username|json_script:"username" }}
@@ -39,6 +29,9 @@
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
         const username = JSON.parse(document.getElementById('username').textContent);
 
+        const consult = document.getElementById("consultation-with");
+
+      
         const chatSocket = new WebSocket(
             'ws://'
             + window.location.host
@@ -46,8 +39,6 @@
             + roomName
             + '/'
         );
-
-        //on message received
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
 
@@ -75,8 +66,6 @@
             chatDiv.appendChild(senderMessage)
             
             document.getElementById("here").appendChild(chatDiv)
-
-            // document.querySelector('#chat-log').value += (data.username + ": " + data.message +'\n');
         };
 
         chatSocket.onclose = function(e) {

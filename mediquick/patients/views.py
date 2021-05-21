@@ -27,7 +27,6 @@ def patient_home(request, user_id):
             name = "Admin"
         else: 
             name = user.first_name
-
         data = {
             'name': name,
             'user_number': user_id,
