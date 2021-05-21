@@ -18,10 +18,10 @@ from users.models import CustomUser
 def patient_home(request, user_id):
     user = CustomUser.objects.get(pk=user_id)
     pk = str(request.session.get('pk'))
-    # print(f'pk: {type(pk)}')
-    # print(f'user id: {type(user_id)}')
-    # print(f'{pk==user_id}')
-    # user_name = user.first_name
+    print(f'pk: {type(pk)}')
+    print(f'user id: {type(user_id)}')
+    print(f'{pk==user_id}')
+    user_name = user.first_name
     if user_id == pk and not user.is_doctor:
         if user.first_name == "": 
             name = "Admin"
