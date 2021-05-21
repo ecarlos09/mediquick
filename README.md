@@ -127,11 +127,11 @@ Scheduling system - implement an appointment scheduling system for the patients 
 
 Due to the nature of the app, in terms of the handling of sensitive health data, GDPR policies must be followed. Some of the key factors to consider and how we dealt with this is placed below. 
 
-Transparency - we have a policy page, which clearly states the use of data for patients to read as well as a support page to contact us
+- Transparency - we have a policy page, which clearly states the use of data for patients to read as well as a support page to contact us
 
-Data minimisation - mediquick only asks for basic information, such as name and email address to function properly. However, this may be expanded upon in future versions
+- Data minimisation - mediquick only asks for basic information, such as name and email address to function properly. However, this may be expanded upon in future versions
 
-Storage - all data that is stored is encrypted using django cryptography
+- Storage - all data that is stored is encrypted using django cryptography
 
 Slide Deck
 
