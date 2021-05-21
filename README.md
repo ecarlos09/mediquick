@@ -3,6 +3,11 @@ by Ryan, Greta, Elwin
 
 Advancing health care into the future generation
 
+<img width="1000" alt="mediquick" src="https://imgur.com/ILqMJGN">
+
+
+
+
 # Description
 The B word. We've all said it.
 
@@ -108,10 +113,10 @@ A bug in our app is the error handling elements that weren't fully implemented a
 
 
 ## Significant Code
-(Place image of code snippets here)
-{"A?":"B","a":5,"d":"B","h":"www.canva.com","c":"DAEe8NAZUR4","i":"Us-WzufjzcWzLvncnqZyEA","b":1621578007312,"A":[{"A?":"I","A":352.9843634473119,"B":682.4428091684845,"D":1223.0138271617052,"C":470.33269831304614,"a":{"B":{"A":{"A":"MAEfBh0qRUw","B":1},"B":{"A":-91.26499506115684,"B":-86.70174530809902,"D":1432.8947894328885,"C":652.8626884353599}}}}],"B":1920,"C":1080}
 
-{"A?":"B","a":5,"d":"B","h":"www.canva.com","c":"DAEe8NAZUR4","i":"Us-WzufjzcWzLvncnqZyEA","b":1621578007312,"A":[{"A?":"I","A":340.4606819194761,"B":779.463698691221,"D":1032.536301308779,"C":435.1402984086997,"a":{"B":{"A":{"A":"MAEfBVSl4SE","B":1},"B":{"A":-2.842170943040401e-14,"B":-1.1368683772161603e-13,"D":1032.5363013087792,"C":435.1402984086998}}}}],"B":1920,"C":1080}
+<img width="1000" alt="habite" src="https://user-images.githubusercontent.com/58271566/114206025-cf58bf80-9952-11eb-9d02-2afd378417ab.png">
+
+<img width="1000" alt="habite" src="https://user-images.githubusercontent.com/58271566/114206025-cf58bf80-9952-11eb-9d02-2afd378417ab.png">
 
 
 
