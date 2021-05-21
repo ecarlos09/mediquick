@@ -10,9 +10,18 @@ Advancing diagnosis into the future generation
 https://medi-quick.herokuapp.com/
 
 ## Description
-Life is hard hard enough to keep up with
+
+The B word.  We've all said it.
+
+Busy.
+
+But even in this modern age of always being on the go, you should never be too busy to look after your own health.
+
+At MediQuick, we can provide you with easy access to expert medical advice in just a matter of minutes.
+
+No more queuing on the phone to book a GP appointment.  Just register online and speak to one of our expert resident doctors immediately!
   
-<screenshot/gif here please!>
+(screenshot/gif here please!)
   
   
 ## Requirements, installation & usage
@@ -40,7 +49,7 @@ Then run the following commands:
 
 If all is successful, you should be able to perform the following tasks by running the specified commands:
 
-- Run dev environment in `http://localhost:8000` : `pipenv run dev`
+- Run dev environment: `pipenv run dev` (view on `http://localhost:8000`)
 - Run the full test suite: `pipenv run test`
 - Initiate a coverage report: `pipenv run initcov`
 - View the coverage report: `pipenv run viewcov`
@@ -85,7 +94,7 @@ If all is successful, you should be able to perform the following tasks by runni
 
 ## Significant Code
 
-<Place image of code snippets here>
+(Place image of code snippets here)
   
 ***
 
@@ -93,6 +102,14 @@ If all is successful, you should be able to perform the following tasks by runni
 - ...
   
  ***
+ 
+## GDPR Considerations
+
+Intro spiel
+
+- ...
+
+***
 
 ## Slide Deck 
-https://docs.google.com/presentation/d/1zz35L0qkeKtjEddYI5sMxLWUiJK6sENkWtQIbEeJMzM/edit?usp=sharing
+(link to slide deck)
