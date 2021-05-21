@@ -3,7 +3,7 @@ by Ryan, Greta, Elwin
 
 Advancing health care into the future generation
 
-<img width="1000" alt="mediquick" src="https://imgur.com/ILqMJGN">
+<img width="1000" alt="mediquick" src="https://i.imgur.com/ILqMJGN.png">
 
 
 
