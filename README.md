@@ -114,9 +114,9 @@ A bug in our app is the error handling elements that weren't fully implemented a
 
 ## Significant Code
 
-<img width="600" height="400px" alt="auth-view" src="https://i.imgur.com/pO3twKq.png">
+<img width="600" height="300px" alt="auth-view" src="https://i.imgur.com/pO3twKq.png">
 
-<img width="600" height="400px" alt="habite" src="https://i.imgur.com/ea7qWCQ.png">
+<img width="600" height="200px" alt="habite" src="https://i.imgur.com/ea7qWCQ.png">
 
 
 
