@@ -2,5 +2,6 @@ __pycache__
 .coverage
 .DS_Store
 .env
+*.sqlite3
 .vscode
 mediquick/react

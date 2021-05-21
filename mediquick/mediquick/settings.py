@@ -11,13 +11,16 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import django_heroku
 import channels
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from os.path import join
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = BASE_DIR
 
 # Quick-start development settings - unsuitable for production
@@ -27,13 +30,18 @@ PROJECT_ROOT = BASE_DIR
 import environ
 env = environ.Env()
 environ.Env.read_env()
-SECRET_KEY = env('SECRET_KEY') 
+
+SECRET_KEY = env('SECRET_KEY') if env('SECRET_KEY')==None else os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
+# with open('./.env') as f:
+#     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['https://medi-quick.herokuapp.com/']
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -57,6 +65,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -91,6 +100,10 @@ WSGI_APPLICATION = 'mediquick.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # "default": {
+    #     "ENGINE" : "django.db.backends.sqlite3",
+    #     "NAME": os.path.join(BASE_DIR, "sqlite3"),
+    #     # "DATABASE_URL": os.environ['DATABASE_URL']
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -100,6 +113,14 @@ DATABASES = {
     }
 }
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -138,32 +159,37 @@ USE_TZ = True
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_HOST_USER = 'mediquick.adm1n@outlook.com'
+# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 25
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-
-STATIC_ROOT = join(PROJECT_ROOT, 'run', 'static_root')
-# look for static assets here
-STATICFILES_DIRS = [
-    join(PROJECT_ROOT, 'static'),
-]
-STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'doctor-home'
+LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 
 
 # two factor
 AUTH_USER_MODEL = 'users.CustomUser'
+# two factor end
+
+'''Database configuration'''
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
+# prod_db  =  dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(prod_db)
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+# import psycopg2
+# conn = psycopg2.connect(DATABASES['default']['DATABASE_URL'], sslmode='require')
+
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # two factor end 
 
 # CHAT FEATURE SETTINGS STARTS 
@@ -183,9 +209,11 @@ ASGI_APPLICATION = "mediquick.asgi.application"
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        #"BACKEND": "asgi_redis.RedisChannelLayer",
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
+        "ROUTING": "mediquick.routing.channel_routing",
     },
 }
 
@@ -208,16 +236,39 @@ REST_FRAMEWORK = {
 
 PROJECT_ROOT = BASE_DIR
 
-# Collect static files here
-STATIC_URL = '/static/'
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+''' Deployment configuration '''
+
+django_heroku.settings(locals())
+
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Collect static files here
+STATIC_URL = '/static/'
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_ROOT = 'static/media'
 MEDIA_URL = '/media/'
 
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+#     '/var/www/static/',
+# ]
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    '/var/www/static/',
+    os.path.join(BASE_DIR, 'static'),
 ]
+# STATICFILES_DIRS = []
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+HOST_URL = 'https://medi-quick.herokuapp.com'
+if DEBUG:
+    HOST_URL = 'http://127.0.0.1:8000'
+
